@@ -8,5 +8,8 @@ namespace _1043_Lazea_Stefan
 {
     class Inchirieri
     {
+        private DateTime startInchiriere;
+        private string denumire;
+
     }
 }
