@@ -14,6 +14,7 @@ namespace _1043_Lazea_Stefan
     public partial class Form1 : Form
     {
         string connString;
+        string imgPath = "D:\\paw\\paw\\Proiect\\1043_Lazea_Stefan\\1043_Lazea_Stefan\\bin\\Debug\\default-movie.jpg";
         public Form1()
         {
             InitializeComponent();
@@ -27,24 +28,29 @@ namespace _1043_Lazea_Stefan
             OleDbCommand comanda = new OleDbCommand();
             comanda.Connection = conn;
 
+
             try
             {
                 conn.Open();
                 comanda.CommandText = "Select MAX(id) FROM filme";
                 int id = Convert.ToInt32(comanda.ExecuteScalar()); 
 
-                comanda.CommandText = "INSERT INTO filme VALUES(?,?,?,?,?,?)";
+                comanda.CommandText = "INSERT INTO filme VALUES(?,?,?,?,?,?,?)";
                 comanda.Parameters.Add("id", OleDbType.Integer).Value = id + 1;
                 comanda.Parameters.Add("denumire", OleDbType.Char, 30).Value = tbDenumire.Text;
                 comanda.Parameters.Add("gen", OleDbType.Char, 30).Value = tbGen.Text;
+                comanda.Parameters.Add("data", OleDbType.Date).Value = dateTimePicker.Text.ToString();
                 comanda.Parameters.Add("durata", OleDbType.Double).Value = Convert.ToDouble(tbDurata.Text);
                 comanda.Parameters.Add("pretInchiriere", OleDbType.Double).Value = Convert.ToDouble(tbPret.Text);
-                
-                comanda.Parameters.Add("data", OleDbType.Date).Value = dateTimePicker.Text.ToString();
+                comanda.Parameters.Add("picture", OleDbType.Char).Value = imgPath;
 
                 comanda.ExecuteNonQuery();
 
                 MessageBox.Show("Succes");
+
+                this.Hide();
+                Form3 form = new Form3();
+                form.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -56,6 +62,20 @@ namespace _1043_Lazea_Stefan
                 
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            // image filters  
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // display image in picture box  
+                pictureBox1.Image = new Bitmap(open.FileName);
+                // image file path  
+                imgPath = open.FileName;
+            }
         }
     }
 }

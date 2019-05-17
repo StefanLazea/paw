@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tbDenumire = new System.Windows.Forms.TextBox();
             this.labelDenumire = new System.Windows.Forms.Label();
             this.labelGen = new System.Windows.Forms.Label();
@@ -40,6 +41,9 @@
             this.labelPret = new System.Windows.Forms.Label();
             this.tbPret = new System.Windows.Forms.TextBox();
             this.labelMinute = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbDenumire
@@ -108,9 +112,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(215, 285);
+            this.button1.Location = new System.Drawing.Point(131, 425);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(284, 23);
             this.button1.TabIndex = 8;
             this.button1.Text = "Adauga";
             this.button1.UseVisualStyleBackColor = true;
@@ -141,11 +145,32 @@
             this.labelMinute.TabIndex = 11;
             this.labelMinute.Text = "min";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(215, 273);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(200, 136);
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(131, 328);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Search";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 361);
+            this.ClientSize = new System.Drawing.Size(629, 522);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelMinute);
             this.Controls.Add(this.labelPret);
             this.Controls.Add(this.tbPret);
@@ -160,6 +185,7 @@
             this.Controls.Add(this.tbDenumire);
             this.Name = "Form1";
             this.Text = "Adaugare film";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,6 +205,8 @@
         private System.Windows.Forms.Label labelPret;
         private System.Windows.Forms.TextBox tbPret;
         private System.Windows.Forms.Label labelMinute;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
