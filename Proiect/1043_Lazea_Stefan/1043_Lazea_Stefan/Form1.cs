@@ -107,5 +107,12 @@ namespace _1043_Lazea_Stefan
                 imgPath = open.FileName; // get image path
             }
         }
+
+        private void acasaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2();
+            this.Hide();
+            form.ShowDialog();
+        }
     }
 }

@@ -36,8 +36,11 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.adaugaFilmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonSterge = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView1
@@ -92,25 +95,49 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // menuStrip1
             // 
-            this.textBox1.Location = new System.Drawing.Point(190, 393);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adaugaFilmToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(796, 24);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // adaugaFilmToolStripMenuItem
+            // 
+            this.adaugaFilmToolStripMenuItem.Name = "adaugaFilmToolStripMenuItem";
+            this.adaugaFilmToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.adaugaFilmToolStripMenuItem.Text = "Adauga film";
+            this.adaugaFilmToolStripMenuItem.Click += new System.EventHandler(this.adaugaFilmToolStripMenuItem_Click);
+            // 
+            // buttonSterge
+            // 
+            this.buttonSterge.Location = new System.Drawing.Point(666, 383);
+            this.buttonSterge.Name = "buttonSterge";
+            this.buttonSterge.Size = new System.Drawing.Size(75, 23);
+            this.buttonSterge.TabIndex = 5;
+            this.buttonSterge.Text = "Sterge";
+            this.buttonSterge.UseVisualStyleBackColor = true;
+            this.buttonSterge.Click += new System.EventHandler(this.buttonSterge_Click);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(796, 437);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.buttonSterge);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.listView1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form3";
             this.Text = "Filme";
             this.Activated += new System.EventHandler(this.Form3_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,6 +153,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem adaugaFilmToolStripMenuItem;
+        private System.Windows.Forms.Button buttonSterge;
     }
 }

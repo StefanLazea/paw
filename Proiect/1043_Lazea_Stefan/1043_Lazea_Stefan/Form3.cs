@@ -56,5 +56,41 @@ namespace _1043_Lazea_Stefan
             }
         }
 
+        private void adaugaFilmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 formAdaugare = new Form1();
+            this.Hide();
+            formAdaugare.ShowDialog();
+        }
+
+        private void buttonSterge_Click(object sender, EventArgs e)
+        {
+            OleDbConnection conexiune = new OleDbConnection(connString);
+            OleDbCommand comanda = new OleDbCommand();
+            comanda.Connection = conexiune;
+
+            try
+            {
+                conexiune.Open();
+
+                foreach(ListViewItem itm in listView1.Items)
+                {
+                    if (itm.Checked)
+                    {
+                        int id = Convert.ToInt32(itm.SubItems[0].Text);
+                        comanda.CommandText = "DELETE FROM filme WHERE id=" + id;
+                        comanda.ExecuteNonQuery();
+                    }
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexiune.Close();
+            }
+            Form3_Activated(sender, e);
+        }
     }
 }

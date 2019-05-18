@@ -19,7 +19,8 @@ namespace _1043_Lazea_Stefan
 
         private void buttonFilme_Click(object sender, EventArgs e)
         {
-   
+            Form3 form = new Form3();
+            form.ShowDialog();
         }
     }
 }
