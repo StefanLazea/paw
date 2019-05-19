@@ -92,5 +92,10 @@ namespace _1043_Lazea_Stefan
             }
             Form3_Activated(sender, e);
         }
+
+        private void stergeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

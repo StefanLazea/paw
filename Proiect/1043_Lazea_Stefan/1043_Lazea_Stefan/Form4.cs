@@ -10,18 +10,12 @@ using System.Windows.Forms;
 
 namespace _1043_Lazea_Stefan
 {
-    public partial class Form2 : Form
+    public partial class Form4 : Form
     {
-        public Form2()
+        public Form4()
         {
             InitializeComponent();
         }
 
-        private void buttonFilme_Click(object sender, EventArgs e)
-        {
-            Form3 form = new Form3();
-            this.Hide();
-            form.ShowDialog();
-        }
     }
 }
