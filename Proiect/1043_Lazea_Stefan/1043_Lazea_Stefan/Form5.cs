@@ -21,5 +21,10 @@ namespace _1043_Lazea_Stefan
         {
 
         }
+
+        private void buttonContNou_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

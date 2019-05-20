@@ -23,5 +23,10 @@ namespace _1043_Lazea_Stefan
             this.Hide();
             form.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
