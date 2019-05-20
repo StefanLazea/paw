@@ -17,6 +17,7 @@ namespace _1043_Lazea_Stefan
         public Form3()
         {
             InitializeComponent();
+            this.CenterToScreen();
             connString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = proiect.accdb";
 
         }
@@ -58,7 +59,7 @@ namespace _1043_Lazea_Stefan
 
         private void adaugaFilmToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 formAdaugare = new Form1();
+            adaugareFilm formAdaugare = new adaugareFilm();
             this.Hide();
             formAdaugare.ShowDialog();
         }

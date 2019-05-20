@@ -52,11 +52,11 @@
     <Compile Include="Categorii.cs" />
     <Compile Include="Clienti.cs" />
     <Compile Include="Filme.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="adaugareFilm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="adaugareFilm.Designer.cs">
+      <DependentUpon>adaugareFilm.cs</DependentUpon>
     </Compile>
     <Compile Include="home.cs">
       <SubType>Form</SubType>
@@ -85,8 +85,8 @@
     <Compile Include="Inchirieri.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="adaugareFilm.resx">
+      <DependentUpon>adaugareFilm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="home.resx">
       <DependentUpon>home.cs</DependentUpon>

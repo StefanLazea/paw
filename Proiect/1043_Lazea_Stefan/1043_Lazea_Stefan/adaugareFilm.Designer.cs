@@ -1,6 +1,6 @@
 ﻿namespace _1043_Lazea_Stefan
 {
-    partial class Form1
+    partial class adaugareFilm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adaugareFilm));
             this.tbDenumire = new System.Windows.Forms.TextBox();
             this.labelDenumire = new System.Windows.Forms.Label();
             this.labelGen = new System.Windows.Forms.Label();

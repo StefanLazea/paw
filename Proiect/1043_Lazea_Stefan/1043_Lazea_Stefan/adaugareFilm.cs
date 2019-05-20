@@ -11,14 +11,14 @@ using System.Data.OleDb;
 
 namespace _1043_Lazea_Stefan
 {
-    public partial class Form1 : Form
+    public partial class adaugareFilm : Form
     {
         string connString;
         string imgPath = "D:\\paw\\paw\\Proiect\\1043_Lazea_Stefan\\1043_Lazea_Stefan\\bin\\Debug\\default-movie.jpg";
         int pictureBoxWidth = 0;
         int pictureBoxHeight = 0;
 
-        public Form1()
+        public adaugareFilm()
         {
             InitializeComponent();
 
