@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1043_Lazea_Stefan
 {
-    class Filme
+    class Filme: ICloneable, IComparable
     {
         private int id;
         private string denumire;
@@ -74,6 +74,34 @@ namespace _1043_Lazea_Stefan
             set { this.pretInchiriere = value; }
         }
 
+        public object Clone()
+        {
+            Filme f = (Filme)this.MemberwiseClone();
+
+            return f;
+        }
+
+        public int CompareTo(object obj)
+        {
+            Filme f = (Filme)obj;
+            if(this.pretInchiriere < f.pretInchiriere)
+            {
+                return -1;
+            }else if(this.pretInchiriere == f.pretInchiriere)
+            {
+                return 1;
+            }
+            else
+            {
+                return string.Compare(this.denumire, f.denumire);
+            }
+        }
+
+        public override string ToString()
+        {
+            return "Filmul " + this.denumire + " lansat in " + this.dataLansare.ToString() + " are un pret de inchiriere de " + this.pretInchiriere +
+                " lei si are o durata de " + this.durata + "\n";
+        }
 
     }
 }

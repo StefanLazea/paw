@@ -11,6 +11,7 @@ namespace _1043_Lazea_Stefan
         private int id;
         private DateTime dataReturnare;
         private string denumire;
+        private Filme film;
         private Clienti client;
 
         public Inchirieri()

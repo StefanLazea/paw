@@ -97,5 +97,12 @@ namespace _1043_Lazea_Stefan
         {
 
         }
+
+        private void buttonFilm_Click(object sender, EventArgs e)
+        {
+            Form5 form = new Form5();
+            this.Hide();
+            form.ShowDialog();
+       }
     }
 }
