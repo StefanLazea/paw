@@ -15,11 +15,13 @@ namespace _1043_Lazea_Stefan
         public home()
         {
             InitializeComponent();
+            this.CenterToScreen();
+
         }
 
         private void buttonFilme_Click(object sender, EventArgs e)
         {
-            Form3 form = new Form3();
+            afisareFilme form = new afisareFilme();
             this.Hide();
             form.ShowDialog();
         }

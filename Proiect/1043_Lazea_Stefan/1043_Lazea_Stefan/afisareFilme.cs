@@ -11,10 +11,10 @@ using System.Data.OleDb;
 
 namespace _1043_Lazea_Stefan
 {
-    public partial class Form3 : Form
+    public partial class afisareFilme : Form
     {
         string connString;
-        public Form3()
+        public afisareFilme()
         {
             InitializeComponent();
             this.CenterToScreen();
@@ -38,7 +38,7 @@ namespace _1043_Lazea_Stefan
                     
                     ListViewItem itm = new ListViewItem(reader["id"].ToString());
                     itm.SubItems.Add(reader["denumire"].ToString());
-                    itm.SubItems.Add(reader["gen"].ToString());
+                    itm.SubItems.Add(reader["id_categorie"].ToString());
                     itm.SubItems.Add(reader["dataLansare"].ToString());
                     itm.SubItems.Add(reader["durata"].ToString());
                     itm.SubItems.Add(reader["pretInchiriere"].ToString());

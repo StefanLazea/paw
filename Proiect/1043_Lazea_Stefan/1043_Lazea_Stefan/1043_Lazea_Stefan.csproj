@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Categorii.cs" />
+    <Compile Include="Categorie.cs" />
     <Compile Include="Clienti.cs" />
     <Compile Include="Filme.cs" />
     <Compile Include="adaugareFilm.cs">
@@ -64,11 +64,11 @@
     <Compile Include="home.Designer.cs">
       <DependentUpon>home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="afisareFilme.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="afisareFilme.Designer.cs">
+      <DependentUpon>afisareFilme.cs</DependentUpon>
     </Compile>
     <Compile Include="adaugareRecenzie.cs">
       <SubType>Form</SubType>
@@ -91,8 +91,8 @@
     <EmbeddedResource Include="home.resx">
       <DependentUpon>home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="afisareFilme.resx">
+      <DependentUpon>afisareFilme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="adaugareRecenzie.resx">
       <DependentUpon>adaugareRecenzie.cs</DependentUpon>

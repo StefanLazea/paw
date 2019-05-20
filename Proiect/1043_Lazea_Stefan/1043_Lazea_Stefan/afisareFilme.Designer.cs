@@ -1,6 +1,6 @@
 ﻿namespace _1043_Lazea_Stefan
 {
-    partial class Form3
+    partial class afisareFilme
     {
         /// <summary>
         /// Required designer variable.

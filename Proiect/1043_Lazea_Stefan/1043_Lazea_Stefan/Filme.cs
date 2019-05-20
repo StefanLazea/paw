@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.OleDb;
+
 
 namespace _1043_Lazea_Stefan
 {
@@ -101,6 +103,35 @@ namespace _1043_Lazea_Stefan
         {
             return "Filmul " + this.denumire + " lansat in " + this.dataLansare.ToString() + " are un pret de inchiriere de " + this.pretInchiriere +
                 " lei si are o durata de " + this.durata + "\n";
+        }
+
+        public static List<Filme> getAll(string connString, int userId, string arguments)
+        {
+            OleDbConnection conexiune = new OleDbConnection(connString);
+            OleDbCommand comanda = new OleDbCommand("SELECT * FROM filme");
+
+            List<Filme> listaFilme = new List<Filme>();
+            try
+            {
+                conexiune.Open();
+                OleDbDataReader reader = comanda.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["ID"].ToString());
+                    string denumire = reader["denumire"].ToString();
+
+                    //listaFilme.Add(new Filme(id, denumire));
+                }
+                return listaFilme;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexiune.Close();
+            }
         }
 
     }

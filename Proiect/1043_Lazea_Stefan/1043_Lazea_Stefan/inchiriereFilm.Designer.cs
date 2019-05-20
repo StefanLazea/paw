@@ -50,6 +50,9 @@
             this.labelPassword = new System.Windows.Forms.Label();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.labelUsername = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.acasaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelAlegereFilm
@@ -260,7 +263,25 @@
             this.labelUsername.TabIndex = 14;
             this.labelUsername.Text = "Username";
             // 
-            // Form5
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.acasaToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(724, 33);
+            this.menuStrip1.TabIndex = 22;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // acasaToolStripMenuItem
+            // 
+            this.acasaToolStripMenuItem.Name = "acasaToolStripMenuItem";
+            this.acasaToolStripMenuItem.Size = new System.Drawing.Size(70, 29);
+            this.acasaToolStripMenuItem.Text = "Acasa";
+            this.acasaToolStripMenuItem.Click += new System.EventHandler(this.acasaToolStripMenuItem_Click);
+            // 
+            // inchiriereFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -287,10 +308,14 @@
             this.Controls.Add(this.cbCategorie);
             this.Controls.Add(this.labelReturnare);
             this.Controls.Add(this.labelAlegereFilm);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Form5";
+            this.Name = "inchiriereFilm";
             this.Text = "Inchiriaza un film";
             this.Load += new System.EventHandler(this.Form5_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,5 +345,7 @@
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Label labelUsername;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem acasaToolStripMenuItem;
     }
 }

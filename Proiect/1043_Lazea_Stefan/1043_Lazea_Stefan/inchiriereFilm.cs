@@ -16,7 +16,7 @@ namespace _1043_Lazea_Stefan
     {
         string connString = "";
         bool isChecked = false;
-        List<Categorii> listaCategorii = new List<Categorii>();
+        List<Categorie> listaCategorii = new List<Categorie>();
         OleDbConnection conexiune;
         OleDbCommand comanda;
 
@@ -52,10 +52,10 @@ namespace _1043_Lazea_Stefan
                     int id = Convert.ToInt32(reader["ID"].ToString());
                     string denumire = reader["denumire"].ToString();
 
-                    listaCategorii.Add(new Categorii(id, denumire));
+                    listaCategorii.Add(new Categorie(id, denumire));
                 }
 
-                foreach (Categorii categorie in listaCategorii)
+                foreach (Categorie categorie in listaCategorii)
                 {
                     cbCategorie.Items.Add(categorie.ToString());
                 }
@@ -120,6 +120,13 @@ namespace _1043_Lazea_Stefan
 
                 
             }
+        }
+
+        private void acasaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            home form = new home();
+            this.Hide();
+            form.ShowDialog();
         }
     }
 }

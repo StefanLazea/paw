@@ -21,12 +21,14 @@ namespace _1043_Lazea_Stefan
         public adaugareFilm()
         {
             InitializeComponent();
+            this.CenterToScreen();
+            connString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = proiect.accdb";
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            connString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = proiect.accdb";
+
             OleDbConnection conn = new OleDbConnection(connString);
             OleDbCommand comanda = new OleDbCommand();
             comanda.Connection = conn;
@@ -35,11 +37,6 @@ namespace _1043_Lazea_Stefan
             {
                 errorProvider1.SetError(tbDenumire, "Introduceti denumire");
 
-            }
-            else if (tbGen.Text == "")
-            {
-                errorProvider1.Clear();
-                errorProvider1.SetError(tbGen, "Introduceti gen");
             }
             else if (tbDurata.Text == "")
             {
@@ -63,7 +60,7 @@ namespace _1043_Lazea_Stefan
                     comanda.CommandText = "INSERT INTO filme VALUES(?,?,?,?,?,?,?)";
                     comanda.Parameters.Add("id", OleDbType.Integer).Value = id + 1;
                     comanda.Parameters.Add("denumire", OleDbType.Char, 30).Value = tbDenumire.Text;
-                    comanda.Parameters.Add("gen", OleDbType.Char, 30).Value = tbGen.Text;
+                    comanda.Parameters.Add("gen", OleDbType.Char, 30).Value = "nimic";
                     comanda.Parameters.Add("data", OleDbType.Date).Value = dateTimePicker.Text.ToString();
                     comanda.Parameters.Add("durata", OleDbType.Double).Value = Convert.ToDouble(tbDurata.Text);
                     comanda.Parameters.Add("pretInchiriere", OleDbType.Double).Value = Convert.ToDouble(tbPret.Text);
@@ -74,7 +71,7 @@ namespace _1043_Lazea_Stefan
                     MessageBox.Show("Succes");
 
                     this.Hide();
-                    Form3 form = new Form3();
+                    afisareFilme form = new afisareFilme();
                     form.ShowDialog();
                 }
                 catch (Exception ex)
@@ -114,5 +111,24 @@ namespace _1043_Lazea_Stefan
             this.Hide();
             form.ShowDialog();
         }
+
+        private void adaugareFilm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Categorie> listaCategorii = Categorie.getAllCategories(connString, "");
+                foreach (Categorie categorie in listaCategorii)
+                {
+                    cbCategorie.Items.Add(categorie.ToString());
+                }
+                cbCategorie.SelectedIndex = 0;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }  
     }
 }
