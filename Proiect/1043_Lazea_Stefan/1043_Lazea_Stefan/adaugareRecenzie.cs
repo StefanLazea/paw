@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _1043_Lazea_Stefan
 {
-    public partial class Form4 : Form
+    public partial class adaugareRecenzie : Form
     {
-        public Form4()
+        public adaugareRecenzie()
         {
             InitializeComponent();
         }

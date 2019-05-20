@@ -1,6 +1,6 @@
 ﻿namespace _1043_Lazea_Stefan
 {
-    partial class Form2
+    partial class home
     {
         /// <summary>
         /// Required designer variable.

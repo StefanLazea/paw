@@ -1,6 +1,6 @@
 ﻿namespace _1043_Lazea_Stefan
 {
-    partial class Form4
+    partial class adaugareRecenzie
     {
         /// <summary>
         /// Required designer variable.

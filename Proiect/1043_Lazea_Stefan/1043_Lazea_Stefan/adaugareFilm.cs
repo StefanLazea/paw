@@ -110,7 +110,7 @@ namespace _1043_Lazea_Stefan
 
         private void acasaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form2 form = new Form2();
+            home form = new home();
             this.Hide();
             form.ShowDialog();
         }

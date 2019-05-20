@@ -13,6 +13,8 @@ namespace _1043_Lazea_Stefan
         private string prenume;
         private string adresa;
         private string telefon;
+        private string sex;
+        private string varsta;
         
         public Clienti()
         {
@@ -24,13 +26,17 @@ namespace _1043_Lazea_Stefan
             string nume, 
             string prenume, 
             string adresa,
-            string telefon
+            string telefon,
+            string sex,
+            string varsta
         ) {
             this.id = id;
             this.nume = nume;
             this.prenume = prenume;
             this.adresa = adresa;
             this.telefon = telefon;
+            this.varsta = varsta;
+            this.sex = sex;
         }
 
     }
