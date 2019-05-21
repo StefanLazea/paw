@@ -31,7 +31,6 @@
             this.labelAlegereFilm = new System.Windows.Forms.Label();
             this.labelReturnare = new System.Windows.Forms.Label();
             this.cbFilm = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.buttonDetalii = new System.Windows.Forms.Button();
             this.labelNume = new System.Windows.Forms.Label();
             this.tbNume = new System.Windows.Forms.TextBox();
@@ -53,6 +52,7 @@
             this.acasaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonComanda = new System.Windows.Forms.Button();
             this.cbSex = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,14 +86,6 @@
             this.cbFilm.Name = "cbFilm";
             this.cbFilm.Size = new System.Drawing.Size(298, 28);
             this.cbFilm.TabIndex = 2;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(219, 131);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(298, 26);
-            this.dateTimePicker1.TabIndex = 3;
             // 
             // buttonDetalii
             // 
@@ -293,11 +285,19 @@
             this.cbSex.Size = new System.Drawing.Size(148, 28);
             this.cbSex.TabIndex = 24;
             // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Location = new System.Drawing.Point(219, 137);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(426, 26);
+            this.dateTimePicker.TabIndex = 25;
+            // 
             // inchiriereFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 577);
+            this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.cbSex);
             this.Controls.Add(this.buttonComanda);
             this.Controls.Add(this.labelSex);
@@ -317,7 +317,6 @@
             this.Controls.Add(this.tbNume);
             this.Controls.Add(this.labelNume);
             this.Controls.Add(this.buttonDetalii);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.cbFilm);
             this.Controls.Add(this.labelReturnare);
             this.Controls.Add(this.labelAlegereFilm);
@@ -339,7 +338,6 @@
         private System.Windows.Forms.Label labelAlegereFilm;
         private System.Windows.Forms.Label labelReturnare;
         private System.Windows.Forms.ComboBox cbFilm;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button buttonDetalii;
         private System.Windows.Forms.Label labelNume;
         private System.Windows.Forms.TextBox tbNume;
@@ -361,5 +359,6 @@
         private System.Windows.Forms.ToolStripMenuItem acasaToolStripMenuItem;
         private System.Windows.Forms.Button buttonComanda;
         private System.Windows.Forms.ComboBox cbSex;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
     }
 }

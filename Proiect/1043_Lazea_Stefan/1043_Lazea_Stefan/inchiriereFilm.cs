@@ -71,13 +71,11 @@ namespace _1043_Lazea_Stefan
             comanda.Connection = conn;
             try
             {
-                conn.Open();
-                comanda.CommandText = "Select MAX(id) FROM clienti";
-                int id = Convert.ToInt32(comanda.ExecuteScalar())+1;
+                
+                int idMaxClient = getMaxIdFromDbTable("clienti");
+                int idMaxComanda = getMaxIdFromDbTable("inchirieri");
 
-                int idFilm = Filme.findMovieIdByName(connString, cbFilm.SelectedItem.ToString());
-                //DateTime data = Convert.ToDateTime(dateTimePicker1.Text);
-
+            
                 string nume = tbNume.Text;
                 string prenume = tbPrenume.Text;
                 string adresa = tbAdresa.Text;
@@ -86,9 +84,14 @@ namespace _1043_Lazea_Stefan
                 int varsta = Convert.ToInt32(tbVarsta.Text);
                 string username = tbUsername.Text;
                 string password = tbPassword.Text;
+                int idFilm = Filme.findMovieIdByName(connString, cbFilm.SelectedItem.ToString());
+                DateTime data = Convert.ToDateTime(dateTimePicker.Text);
 
-                client = new Clienti(id, nume, prenume, adresa, telefon, sex, varsta, username, password);
+                client = new Clienti(idMaxClient, nume, prenume, adresa, telefon, sex, varsta, username, password);
                 client.save(connString);
+
+                Inchirieri inchiriere = new Inchirieri(idMaxComanda, data, idFilm, idMaxClient);
+                inchiriere.save(connString);
 
                 MessageBox.Show("Succes");
 
@@ -105,6 +108,17 @@ namespace _1043_Lazea_Stefan
                 conn.Close();
 
             }
+        }
+
+        private int getMaxIdFromDbTable(string tableName)
+        {
+            OleDbConnection conn = new OleDbConnection(connString);
+            OleDbCommand comanda = new OleDbCommand();
+            comanda.Connection = conn;
+            conn.Open();
+            comanda.CommandText = "Select MAX(id) FROM " + tableName;
+            return Convert.ToInt32(comanda.ExecuteScalar()) + 1;
+
         }
     }
 }
