@@ -59,37 +59,28 @@ namespace _1043_Lazea_Stefan
 
         private void buttonSterge_Click(object sender, EventArgs e)
         {
-            OleDbConnection conexiune = new OleDbConnection(connString);
-            OleDbCommand comanda = new OleDbCommand();
-            comanda.Connection = conexiune;
-
-            try
+            foreach (ListViewItem itm in listView1.Items)
             {
-                conexiune.Open();
-
-                foreach(ListViewItem itm in listView1.Items)
+                if (itm.Checked)
                 {
-                    if (itm.Checked)
-                    {
-                        int id = Convert.ToInt32(itm.SubItems[0].Text);
-                        comanda.CommandText = "DELETE FROM filme WHERE id=" + id;
-                        comanda.ExecuteNonQuery();
-                    }
+                    int id = Convert.ToInt32(itm.SubItems[0].Text);
+                    Filme.deleteMovie(connString, id);
                 }
-            }catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                conexiune.Close();
             }
             Form3_Activated(sender, e);
         }
 
         private void stergeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            foreach (ListViewItem itm in listView1.Items)
+            {
+                if (itm.Selected)
+                {
+                    int id = Convert.ToInt32(itm.SubItems[0].Text);
+                    Filme.deleteMovie(connString, id);
+                }
+            }
+            Form3_Activated(sender, e);
         }
 
         private void buttonFilm_Click(object sender, EventArgs e)

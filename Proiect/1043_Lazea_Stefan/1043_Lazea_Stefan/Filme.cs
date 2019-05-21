@@ -170,6 +170,30 @@ namespace _1043_Lazea_Stefan
                 conexiune.Close();
             }
         }
-        
+
+        public static void deleteMovie(string connString, int idMovie)
+        {
+            OleDbConnection conexiune = new OleDbConnection(connString);
+            OleDbCommand comanda = new OleDbCommand();
+            comanda.Connection = conexiune;
+
+            try
+            {
+                conexiune.Open();
+
+                comanda.CommandText = "DELETE FROM filme WHERE id=" + idMovie;
+                comanda.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexiune.Close();
+            }
+        }
     }
+    
 }
