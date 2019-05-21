@@ -115,20 +115,17 @@ namespace _1043_Lazea_Stefan
         }
 
 
-        //nothing
-        public static string getCategoryNameById(string connString, string idCategory)
+        public static string findCategoryNameById(string connString, int idCategory)
         {
             OleDbConnection conn = new OleDbConnection(connString);
-            OleDbCommand comanda = new OleDbCommand("SELECT denumire from categorii where id='" + idCategory + "'", conn);
-            //string nume = Categorie.getCategoryNameById(connString, reader["id_categorie"].ToString());
-            //OleDbCommand comanda2 = new OleDbCommand("SELECT denumire from categorii where id='" + reader["id_categorie"].ToString() + "'", conn);
-            //MessageBox.Show(Convert.ToString(comanda2.ExecuteScalar()));
-            ////itm.SubItems.Add(comanda2.ExecuteScalar());
+            OleDbCommand comanda = new OleDbCommand("SELECT denumire from categorii where id=" + idCategory , conn);
+
+           
             try
             {
                 conn.Open();
 
-                return comanda.ExecuteScalar().ToString();
+                return Convert.ToString(comanda.ExecuteScalar());
             }
             catch (Exception ex)
             {

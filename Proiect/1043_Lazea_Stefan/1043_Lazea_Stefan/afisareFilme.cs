@@ -25,52 +25,29 @@ namespace _1043_Lazea_Stefan
         private void Form3_Activated(object sender, EventArgs e)
         {
             listView1.Items.Clear();
-            OleDbConnection conexiune = new OleDbConnection(connString);
-            OleDbCommand comanda = new OleDbCommand("SELECT * FROM filme", conexiune);
-
-
+           
             try
             {
-                conexiune.Open();
-                OleDbDataReader reader = comanda.ExecuteReader(); 
-                while (reader.Read())
+                List<Filme> listaFilme = Filme.getAllMovies(connString);
+                foreach (Filme filme in listaFilme)
                 {
-                    
-                    ListViewItem itm = new ListViewItem(reader["id"].ToString());
-                    OleDbConnection conn = new OleDbConnection(connString);
-
-                    
-                    try
-                    {
-                        conn.Open();
-
-                        itm.SubItems.Add(reader["denumire"].ToString());
-                        itm.SubItems.Add(reader["id_categorie"].ToString());
-                        itm.SubItems.Add(reader["dataLansare"].ToString());
-                        itm.SubItems.Add(reader["durata"].ToString());
-                        itm.SubItems.Add(reader["pretInchiriere"].ToString());
-                        listView1.Items.Add(itm);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw ex;
-                    }
-                    finally
-                    {
-                        conn.Close();
-                    }
-                   
+                    ListViewItem itm = new ListViewItem(filme.Id.ToString());
+                    itm.SubItems.Add(filme.Denumire);
+                    string denumire = Categorie.findCategoryNameById(connString, filme.IdCategorie);
+                    itm.SubItems.Add(denumire);
+                    itm.SubItems.Add(filme.Datalansare.ToString());
+                    itm.SubItems.Add(filme.Durata.ToString());
+                    itm.SubItems.Add(filme.PretInchiriere.ToString());
+                    listView1.Items.Add(itm);
                 }
-
+               
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
-            finally
-            {
-                conexiune.Close();
-            }
+
         }
        
         private void adaugaFilmToolStripMenuItem_Click(object sender, EventArgs e)

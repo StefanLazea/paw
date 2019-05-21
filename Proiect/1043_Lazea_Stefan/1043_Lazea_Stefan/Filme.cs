@@ -104,38 +104,38 @@ namespace _1043_Lazea_Stefan
                 " lei si are o durata de " + this.durata + "\n";
         }
 
-        //public void save(string connString, string imgPath)
-        //{
-        //    OleDbConnection conexiune = new OleDbConnection(connString);
-        //    OleDbCommand comanda = new OleDbCommand();
-        //    comanda.Connection = conexiune;
-        //    try
-        //    {
-        //        conexiune.Open();
-        //        comanda.CommandText = "Select MAX(id) FROM filme";
-        //        int id = Convert.ToInt32(comanda.ExecuteScalar());
+        public void save(string connString, string imgPath)
+        {
+            OleDbConnection conexiune = new OleDbConnection(connString);
+            OleDbCommand comanda = new OleDbCommand();
+            comanda.Connection = conexiune;
+            try
+            {
+                conexiune.Open();
+                comanda.CommandText = "Select MAX(id) FROM filme";
+                int id = Convert.ToInt32(comanda.ExecuteScalar());
 
-        //        comanda.CommandText = "INSERT INTO filme VALUES(?,?,?,?,?,?,?)";
-        //        comanda.Parameters.Add("id", OleDbType.Integer).Value = id + 1;
-        //        comanda.Parameters.Add("denumire", OleDbType.Char, 30).Value = this.denumire;
-        //        comanda.Parameters.Add("id_categorie", OleDbType.Integer).Value = 3;
-        //        comanda.Parameters.Add("dataLansare", OleDbType.Date).Value = this.dataLansare;
-        //        comanda.Parameters.Add("durata", OleDbType.Double).Value = this.durata;
-        //        comanda.Parameters.Add("pretInchiriere", OleDbType.Double).Value = this.pretInchiriere;
-        //        comanda.Parameters.Add("picture", OleDbType.Char).Value = imgPath;
+                comanda.CommandText = "INSERT INTO filme VALUES(?,?,?,?,?,?,?)";
+                comanda.Parameters.Add("id", OleDbType.Integer).Value = id + 1;
+                comanda.Parameters.Add("denumire", OleDbType.Char, 30).Value = this.denumire;
+                comanda.Parameters.Add("id_categorie", OleDbType.Integer).Value = 3;
+                comanda.Parameters.Add("dataLansare", OleDbType.Date).Value = this.dataLansare;
+                comanda.Parameters.Add("durata", OleDbType.Double).Value = this.durata;
+                comanda.Parameters.Add("pretInchiriere", OleDbType.Double).Value = this.pretInchiriere;
+                comanda.Parameters.Add("picture", OleDbType.Char).Value = imgPath;
 
-        //        comanda.ExecuteNonQuery();
+                comanda.ExecuteNonQuery();
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    finally
-        //    {
-        //        conexiune.Close();
-        //    }
-        //}
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexiune.Close();
+            }
+        }
 
         public static List<Filme> getAllMovies(string connString)
         {

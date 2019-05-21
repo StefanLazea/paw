@@ -76,9 +76,9 @@
             this.labelGen.Location = new System.Drawing.Point(192, 177);
             this.labelGen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGen.Name = "labelGen";
-            this.labelGen.Size = new System.Drawing.Size(40, 20);
+            this.labelGen.Size = new System.Drawing.Size(78, 20);
             this.labelGen.TabIndex = 3;
-            this.labelGen.Text = "Gen";
+            this.labelGen.Text = "Categorie";
             // 
             // labelDurata
             // 

@@ -270,7 +270,7 @@
             this.acasaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(724, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(723, 33);
             this.menuStrip1.TabIndex = 22;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -285,7 +285,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 551);
+            this.ClientSize = new System.Drawing.Size(723, 577);
             this.Controls.Add(this.tbSex);
             this.Controls.Add(this.labelSex);
             this.Controls.Add(this.tbVarsta);
