@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.IO;
 
 namespace _1043_Lazea_Stefan
 {
@@ -37,6 +38,20 @@ namespace _1043_Lazea_Stefan
 
         private void salveazaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "(*.txt)|*.txt";
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                FileStream fs = new FileStream(dlg.FileName, FileMode.Create, FileAccess.Write);
+
+                StreamWriter sw = new StreamWriter(fs);
+                sw.WriteLine(idFilm);
+                sw.WriteLine(cbNota.SelectedItem.ToString());
+                sw.WriteLine(tbDescriere.Text);
+                sw.Close();
+            }
 
         }
 
@@ -72,6 +87,22 @@ namespace _1043_Lazea_Stefan
             {
                 conn.Close();
 
+            }
+        }
+
+        private void deschideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "(*.txt)|*.txt";
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                StreamReader sr = new StreamReader(dlg.FileName);
+                
+                this.idFilm = Convert.ToInt32(sr.ReadLine());
+                cbNota.SelectedItem = sr.ReadLine();
+                tbDescriere.Text = sr.ReadLine();                
+                sr.Close();
             }
         }
     }

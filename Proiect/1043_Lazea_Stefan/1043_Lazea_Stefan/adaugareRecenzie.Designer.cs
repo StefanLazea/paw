@@ -168,6 +168,7 @@
             this.deschideToolStripMenuItem.Name = "deschideToolStripMenuItem";
             this.deschideToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.deschideToolStripMenuItem.Text = "Deschide";
+            this.deschideToolStripMenuItem.Click += new System.EventHandler(this.deschideToolStripMenuItem_Click);
             // 
             // formatareToolStripMenuItem
             // 
