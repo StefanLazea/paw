@@ -42,6 +42,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.adaugaFilmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acasaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonSterge = new System.Windows.Forms.Button();
             this.buttonFilm = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
@@ -69,6 +70,7 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
             // 
             // columnHeader6
             // 
@@ -115,6 +117,7 @@
             this.adaugaFeedbackToolStripMenuItem.Name = "adaugaFeedbackToolStripMenuItem";
             this.adaugaFeedbackToolStripMenuItem.Size = new System.Drawing.Size(223, 30);
             this.adaugaFeedbackToolStripMenuItem.Text = "Adauga feedback";
+            this.adaugaFeedbackToolStripMenuItem.Click += new System.EventHandler(this.adaugaFeedbackToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -130,7 +133,8 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.adaugaFilmToolStripMenuItem});
+            this.adaugaFilmToolStripMenuItem,
+            this.acasaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
@@ -144,6 +148,13 @@
             this.adaugaFilmToolStripMenuItem.Size = new System.Drawing.Size(121, 29);
             this.adaugaFilmToolStripMenuItem.Text = "Adauga film";
             this.adaugaFilmToolStripMenuItem.Click += new System.EventHandler(this.adaugaFilmToolStripMenuItem_Click);
+            // 
+            // acasaToolStripMenuItem
+            // 
+            this.acasaToolStripMenuItem.Name = "acasaToolStripMenuItem";
+            this.acasaToolStripMenuItem.Size = new System.Drawing.Size(70, 29);
+            this.acasaToolStripMenuItem.Text = "Acasa";
+            this.acasaToolStripMenuItem.Click += new System.EventHandler(this.acasaToolStripMenuItem_Click);
             // 
             // buttonSterge
             // 
@@ -207,5 +218,6 @@
         private System.Windows.Forms.ToolStripMenuItem stergeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adaugaFeedbackToolStripMenuItem;
         private System.Windows.Forms.Button buttonFilm;
+        private System.Windows.Forms.ToolStripMenuItem acasaToolStripMenuItem;
     }
 }

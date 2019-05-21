@@ -56,17 +56,15 @@ namespace _1043_Lazea_Stefan
                     comanda.CommandText = "Select MAX(id) FROM filme";
                     int id = Convert.ToInt32(comanda.ExecuteScalar());
 
-                    comanda.CommandText = "INSERT INTO filme VALUES(?,?,?,?,?,?,?)";
-                    comanda.Parameters.Add("id", OleDbType.Integer).Value = id + 1;
-                    comanda.Parameters.Add("denumire", OleDbType.Char, 30).Value = tbDenumire.Text;
+                    string denumire = tbDenumire.Text;
                     int idCategorie = Categorie.getCategoryIdByName(connString, cbCategorie.SelectedItem.ToString());
-                    comanda.Parameters.Add("id_categorie", OleDbType.Integer).Value = idCategorie; 
-                    comanda.Parameters.Add("data", OleDbType.Date).Value = dateTimePicker.Text.ToString();
-                    comanda.Parameters.Add("durata", OleDbType.Double).Value = Convert.ToDouble(tbDurata.Text);
-                    comanda.Parameters.Add("pretInchiriere", OleDbType.Double).Value = Convert.ToDouble(tbPret.Text);
-                    comanda.Parameters.Add("picture", OleDbType.Char).Value = imgPath;
+                    DateTime data = Convert.ToDateTime(dateTimePicker.Text);
+                    double durata = Convert.ToDouble(tbDurata.Text);
+                    float pret = (float)Convert.ToDouble(tbPret.Text);
 
-                    comanda.ExecuteNonQuery();
+
+                    Filme film = new Filme(id, denumire, idCategorie, data, durata, pret, imgPath);
+                    film.save(connString);
 
                     MessageBox.Show("Succes");
 
@@ -76,7 +74,7 @@ namespace _1043_Lazea_Stefan
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {

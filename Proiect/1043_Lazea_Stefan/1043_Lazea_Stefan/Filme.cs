@@ -16,6 +16,7 @@ namespace _1043_Lazea_Stefan
         private DateTime dataLansare;
         private double durata;
         private float pretInchiriere;
+        private string picture;
 
         public Filme()
         {
@@ -28,7 +29,8 @@ namespace _1043_Lazea_Stefan
             int idCategorie, 
             DateTime dataLansare, 
             double durata, 
-            float pretInchiriere
+            float pretInchiriere, 
+            string picture
          ) {
             this.id = id;
             this.denumire = denumire;
@@ -36,6 +38,7 @@ namespace _1043_Lazea_Stefan
             this.dataLansare = dataLansare;
             this.durata = durata;
             this.pretInchiriere = pretInchiriere;
+            this.picture = picture;
         }
         
         public int Id
@@ -75,6 +78,14 @@ namespace _1043_Lazea_Stefan
             set { this.pretInchiriere = value; }
         }
 
+        public string Picture
+        {
+            get { return this.picture; }
+            set {
+                this.picture = value;
+                }
+        }
+
         public object Clone()
         {
             Filme f = (Filme)this.MemberwiseClone();
@@ -104,7 +115,7 @@ namespace _1043_Lazea_Stefan
                 " lei si are o durata de " + this.durata + "\n";
         }
 
-        public void save(string connString, string imgPath)
+        public void save(string connString)
         {
             OleDbConnection conexiune = new OleDbConnection(connString);
             OleDbCommand comanda = new OleDbCommand();
@@ -112,17 +123,15 @@ namespace _1043_Lazea_Stefan
             try
             {
                 conexiune.Open();
-                comanda.CommandText = "Select MAX(id) FROM filme";
-                int id = Convert.ToInt32(comanda.ExecuteScalar());
 
                 comanda.CommandText = "INSERT INTO filme VALUES(?,?,?,?,?,?,?)";
-                comanda.Parameters.Add("id", OleDbType.Integer).Value = id + 1;
+                comanda.Parameters.Add("id", OleDbType.Integer).Value = this.id + 1;
                 comanda.Parameters.Add("denumire", OleDbType.Char, 30).Value = this.denumire;
-                comanda.Parameters.Add("id_categorie", OleDbType.Integer).Value = 3;
+                comanda.Parameters.Add("id_categorie", OleDbType.Integer).Value = this.idCategorie;
                 comanda.Parameters.Add("dataLansare", OleDbType.Date).Value = this.dataLansare;
                 comanda.Parameters.Add("durata", OleDbType.Double).Value = this.durata;
                 comanda.Parameters.Add("pretInchiriere", OleDbType.Double).Value = this.pretInchiriere;
-                comanda.Parameters.Add("picture", OleDbType.Char).Value = imgPath;
+                comanda.Parameters.Add("picture", OleDbType.Char).Value = this.picture;
 
                 comanda.ExecuteNonQuery();
 
@@ -156,10 +165,45 @@ namespace _1043_Lazea_Stefan
                     DateTime date = Convert.ToDateTime(reader["dataLansare"].ToString());
                     double durata = Convert.ToDouble(reader["durata"].ToString());
                     float pret = (float)Convert.ToDouble(reader["pretInchiriere"].ToString());
+                    string picture = reader["picture"].ToString();
 
-                    listaFilme.Add(new Filme(id, denumire, idCategorie, date, durata, pret));
+                    listaFilme.Add(new Filme(id, denumire, idCategorie, date, durata, pret, picture));
                 }
                 return listaFilme;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexiune.Close();
+            }
+        }
+
+        public static Filme getOneById(string connString, int movieId)
+        {
+            OleDbConnection conexiune = new OleDbConnection(connString);
+            OleDbCommand comanda = new OleDbCommand("SELECT * FROM filme WHERE id=" + movieId, conexiune);
+
+            try
+            {
+                conexiune.Open();
+                OleDbDataReader reader = comanda.ExecuteReader();
+                Filme film = new Filme();
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["ID"].ToString());
+                    string denumire = reader["denumire"].ToString();
+                    int idCategorie = Convert.ToInt32(reader["id_categorie"].ToString());
+                    DateTime date = Convert.ToDateTime(reader["dataLansare"].ToString());
+                    double durata = Convert.ToDouble(reader["durata"].ToString());
+                    float pret = (float)Convert.ToDouble(reader["pretInchiriere"].ToString());
+                    string picture = reader["picture"].ToString();
+
+                    film = new Filme(id, denumire, idCategorie, date, durata, pret, picture);
+                }
+                return film;
             }
             catch (Exception ex)
             {

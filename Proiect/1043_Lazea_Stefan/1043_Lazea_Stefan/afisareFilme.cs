@@ -14,6 +14,9 @@ namespace _1043_Lazea_Stefan
     public partial class afisareFilme : Form
     {
         string connString;
+        int pictureBoxHeight = 0;
+        int pictureBoxWidth = 0;
+
         public afisareFilme()
         {
             InitializeComponent();
@@ -25,7 +28,8 @@ namespace _1043_Lazea_Stefan
         private void Form3_Activated(object sender, EventArgs e)
         {
             listView1.Items.Clear();
-           
+            pictureBoxHeight = pictureBox1.Height;
+            pictureBoxWidth = pictureBox1.Width;
             try
             {
                 List<Filme> listaFilme = Filme.getAllMovies(connString);
@@ -89,5 +93,41 @@ namespace _1043_Lazea_Stefan
             this.Hide();
             form.ShowDialog();
        }
+
+        private void acasaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            home form = new home();
+            this.Hide();
+            form.ShowDialog();
+       
+        }
+
+        private void adaugaFeedbackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem itm in listView1.Items)
+            {
+                if (itm.Selected)
+                {
+                    int id = Convert.ToInt32(itm.SubItems[0].Text);
+
+                    adaugareRecenzie form = new adaugareRecenzie(id, connString);
+                    form.ShowDialog();
+                 }
+            }
+        }
+
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            foreach (ListViewItem itm in listView1.Items)
+            {
+                if (itm.Selected)
+                {
+                    int idFilm = Convert.ToInt32(itm.SubItems[0].Text);
+                    Filme film = Filme.getOneById(connString, idFilm);
+                    pictureBox1.Image = (Image)(new Bitmap(new Bitmap(film.Picture), new Size(pictureBoxWidth, pictureBoxHeight)));
+                    
+                }
+            }
+        }
     }
 }
