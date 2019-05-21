@@ -36,5 +36,11 @@ namespace _1043_Lazea_Stefan
             inchiriereFilm form = new inchiriereFilm();
             form.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Statistici form = new Statistici();
+            form.ShowDialog();
+        }
     }
 }

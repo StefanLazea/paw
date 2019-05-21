@@ -8,3 +8,13 @@ C:\Users\stud\source\repos\WindowsFormsAppSeminar5\WindowsFormsAppSeminar5\obj\D
 C:\Users\stud\source\repos\WindowsFormsAppSeminar5\WindowsFormsAppSeminar5\obj\Debug\WindowsFormsAppSeminar5.csproj.CoreCompileInputs.cache
 C:\Users\stud\source\repos\WindowsFormsAppSeminar5\WindowsFormsAppSeminar5\obj\Debug\WindowsFormsAppSeminar5.exe
 C:\Users\stud\source\repos\WindowsFormsAppSeminar5\WindowsFormsAppSeminar5\obj\Debug\WindowsFormsAppSeminar5.pdb
+D:\paw\paw\WindowsFormsAppSeminar5\WindowsFormsAppSeminar5\bin\Debug\WindowsFormsAppSeminar5.exe.config
+D:\paw\paw\WindowsFormsAppSeminar5\WindowsFormsAppSeminar5\bin\Debug\WindowsFormsAppSeminar5.exe
+D:\paw\paw\WindowsFormsAppSeminar5\WindowsFormsAppSeminar5\bin\Debug\WindowsFormsAppSeminar5.pdb
+D:\paw\paw\WindowsFormsAppSeminar5\WindowsFormsAppSeminar5\obj\Debug\WindowsFormsAppSeminar5.csprojAssemblyReference.cache
+D:\paw\paw\WindowsFormsAppSeminar5\WindowsFormsAppSeminar5\obj\Debug\WindowsFormsAppSeminar5.Form1.resources
+D:\paw\paw\WindowsFormsAppSeminar5\WindowsFormsAppSeminar5\obj\Debug\WindowsFormsAppSeminar5.Properties.Resources.resources
+D:\paw\paw\WindowsFormsAppSeminar5\WindowsFormsAppSeminar5\obj\Debug\WindowsFormsAppSeminar5.csproj.GenerateResource.cache
+D:\paw\paw\WindowsFormsAppSeminar5\WindowsFormsAppSeminar5\obj\Debug\WindowsFormsAppSeminar5.csproj.CoreCompileInputs.cache
+D:\paw\paw\WindowsFormsAppSeminar5\WindowsFormsAppSeminar5\obj\Debug\WindowsFormsAppSeminar5.exe
+D:\paw\paw\WindowsFormsAppSeminar5\WindowsFormsAppSeminar5\obj\Debug\WindowsFormsAppSeminar5.pdb

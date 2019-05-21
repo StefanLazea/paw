@@ -47,6 +47,7 @@
             this.buttonAdaugaRecenzie = new System.Windows.Forms.Button();
             this.cbNota = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.tbNotaMedie = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -159,14 +160,14 @@
             // salveazaToolStripMenuItem
             // 
             this.salveazaToolStripMenuItem.Name = "salveazaToolStripMenuItem";
-            this.salveazaToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.salveazaToolStripMenuItem.Size = new System.Drawing.Size(168, 30);
             this.salveazaToolStripMenuItem.Text = "Salveaza";
             this.salveazaToolStripMenuItem.Click += new System.EventHandler(this.salveazaToolStripMenuItem_Click);
             // 
             // deschideToolStripMenuItem
             // 
             this.deschideToolStripMenuItem.Name = "deschideToolStripMenuItem";
-            this.deschideToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.deschideToolStripMenuItem.Size = new System.Drawing.Size(168, 30);
             this.deschideToolStripMenuItem.Text = "Deschide";
             this.deschideToolStripMenuItem.Click += new System.EventHandler(this.deschideToolStripMenuItem_Click);
             // 
@@ -224,17 +225,25 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(292, 119);
+            this.label2.Location = new System.Drawing.Point(278, 119);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
+            this.label2.Size = new System.Drawing.Size(94, 20);
             this.label2.TabIndex = 13;
-            this.label2.Text = "label2";
+            this.label2.Text = "Nota medie:";
+            // 
+            // tbNotaMedie
+            // 
+            this.tbNotaMedie.Location = new System.Drawing.Point(378, 119);
+            this.tbNotaMedie.Name = "tbNotaMedie";
+            this.tbNotaMedie.Size = new System.Drawing.Size(148, 26);
+            this.tbNotaMedie.TabIndex = 14;
             // 
             // adaugareRecenzie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.tbNotaMedie);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbNota);
             this.Controls.Add(this.buttonAdaugaRecenzie);
@@ -281,5 +290,6 @@
         private System.Windows.Forms.ToolStripMenuItem culoareToolStripMenuItem;
         private System.Windows.Forms.ComboBox cbNota;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbNotaMedie;
     }
 }
