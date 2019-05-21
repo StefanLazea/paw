@@ -215,6 +215,27 @@ namespace _1043_Lazea_Stefan
             }
         }
 
+        public static int findMovieIdByName(string connString, string denumire)
+        {
+
+            OleDbConnection conn = new OleDbConnection(connString);
+            OleDbCommand comanda = new OleDbCommand("SELECT id from filme where denumire='" + denumire + "'", conn);
+            try
+            {
+                conn.Open();
+
+                return Convert.ToInt32(comanda.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public static void deleteMovie(string connString, int idMovie)
         {
             OleDbConnection conexiune = new OleDbConnection(connString);

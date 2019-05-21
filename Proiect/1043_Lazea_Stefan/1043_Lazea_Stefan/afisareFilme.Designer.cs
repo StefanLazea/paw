@@ -45,6 +45,8 @@
             this.acasaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonSterge = new System.Windows.Forms.Button();
             this.buttonFilm = new System.Windows.Forms.Button();
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inchideAplicatiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -134,7 +136,9 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adaugaFilmToolStripMenuItem,
-            this.acasaToolStripMenuItem});
+            this.acasaToolStripMenuItem,
+            this.closeToolStripMenuItem,
+            this.inchideAplicatiaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
@@ -176,6 +180,20 @@
             this.buttonFilm.Text = "Inchiriaza film";
             this.buttonFilm.UseVisualStyleBackColor = true;
             this.buttonFilm.Click += new System.EventHandler(this.buttonFilm_Click);
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(67, 29);
+            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
+            // 
+            // inchideAplicatiaToolStripMenuItem
+            // 
+            this.inchideAplicatiaToolStripMenuItem.Name = "inchideAplicatiaToolStripMenuItem";
+            this.inchideAplicatiaToolStripMenuItem.Size = new System.Drawing.Size(153, 29);
+            this.inchideAplicatiaToolStripMenuItem.Text = "Inchide Aplicatia";
+            this.inchideAplicatiaToolStripMenuItem.Click += new System.EventHandler(this.inchideAplicatiaToolStripMenuItem_Click);
             // 
             // afisareFilme
             // 
@@ -219,5 +237,7 @@
         private System.Windows.Forms.ToolStripMenuItem adaugaFeedbackToolStripMenuItem;
         private System.Windows.Forms.Button buttonFilm;
         private System.Windows.Forms.ToolStripMenuItem acasaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inchideAplicatiaToolStripMenuItem;
     }
 }

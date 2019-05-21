@@ -30,7 +30,7 @@
         {
             this.labelAlegereFilm = new System.Windows.Forms.Label();
             this.labelReturnare = new System.Windows.Forms.Label();
-            this.cbCategorie = new System.Windows.Forms.ComboBox();
+            this.cbFilm = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.buttonDetalii = new System.Windows.Forms.Button();
             this.labelNume = new System.Windows.Forms.Label();
@@ -42,7 +42,6 @@
             this.labelAdresa = new System.Windows.Forms.Label();
             this.tbTelefon = new System.Windows.Forms.TextBox();
             this.labelTelefon = new System.Windows.Forms.Label();
-            this.tbSex = new System.Windows.Forms.TextBox();
             this.labelSex = new System.Windows.Forms.Label();
             this.tbVarsta = new System.Windows.Forms.TextBox();
             this.labelVarsta = new System.Windows.Forms.Label();
@@ -52,6 +51,8 @@
             this.labelUsername = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.acasaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonComanda = new System.Windows.Forms.Button();
+            this.cbSex = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,14 +78,14 @@
             this.labelReturnare.Text = "Data returnare";
             this.labelReturnare.Click += new System.EventHandler(this.label2_Click);
             // 
-            // cbCategorie
+            // cbFilm
             // 
-            this.cbCategorie.FormattingEnabled = true;
-            this.cbCategorie.Location = new System.Drawing.Point(219, 60);
-            this.cbCategorie.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbCategorie.Name = "cbCategorie";
-            this.cbCategorie.Size = new System.Drawing.Size(298, 28);
-            this.cbCategorie.TabIndex = 2;
+            this.cbFilm.FormattingEnabled = true;
+            this.cbFilm.Location = new System.Drawing.Point(219, 60);
+            this.cbFilm.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbFilm.Name = "cbFilm";
+            this.cbFilm.Size = new System.Drawing.Size(298, 28);
+            this.cbFilm.TabIndex = 2;
             // 
             // dateTimePicker1
             // 
@@ -134,8 +135,6 @@
             this.rbContExistent.TabStop = true;
             this.rbContExistent.Text = "Am deja un cont";
             this.rbContExistent.UseVisualStyleBackColor = true;
-            this.rbContExistent.CheckedChanged += new System.EventHandler(this.rbContExistent_CheckedChanged);
-            this.rbContExistent.Click += new System.EventHandler(this.rbContExistent_Click);
             // 
             // tbPrenume
             // 
@@ -190,14 +189,6 @@
             this.labelTelefon.Size = new System.Drawing.Size(62, 20);
             this.labelTelefon.TabIndex = 12;
             this.labelTelefon.Text = "Telefon";
-            // 
-            // tbSex
-            // 
-            this.tbSex.Location = new System.Drawing.Point(497, 448);
-            this.tbSex.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbSex.Name = "tbSex";
-            this.tbSex.Size = new System.Drawing.Size(148, 26);
-            this.tbSex.TabIndex = 21;
             // 
             // labelSex
             // 
@@ -281,12 +272,34 @@
             this.acasaToolStripMenuItem.Text = "Acasa";
             this.acasaToolStripMenuItem.Click += new System.EventHandler(this.acasaToolStripMenuItem_Click);
             // 
+            // buttonComanda
+            // 
+            this.buttonComanda.Location = new System.Drawing.Point(292, 506);
+            this.buttonComanda.Name = "buttonComanda";
+            this.buttonComanda.Size = new System.Drawing.Size(181, 37);
+            this.buttonComanda.TabIndex = 23;
+            this.buttonComanda.Text = "Trimite comanda";
+            this.buttonComanda.UseVisualStyleBackColor = true;
+            this.buttonComanda.Click += new System.EventHandler(this.buttonComanda_Click);
+            // 
+            // cbSex
+            // 
+            this.cbSex.FormattingEnabled = true;
+            this.cbSex.Items.AddRange(new object[] {
+            "Masculin",
+            "Feminin"});
+            this.cbSex.Location = new System.Drawing.Point(497, 442);
+            this.cbSex.Name = "cbSex";
+            this.cbSex.Size = new System.Drawing.Size(148, 28);
+            this.cbSex.TabIndex = 24;
+            // 
             // inchiriereFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 577);
-            this.Controls.Add(this.tbSex);
+            this.Controls.Add(this.cbSex);
+            this.Controls.Add(this.buttonComanda);
             this.Controls.Add(this.labelSex);
             this.Controls.Add(this.tbVarsta);
             this.Controls.Add(this.labelVarsta);
@@ -305,7 +318,7 @@
             this.Controls.Add(this.labelNume);
             this.Controls.Add(this.buttonDetalii);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.cbCategorie);
+            this.Controls.Add(this.cbFilm);
             this.Controls.Add(this.labelReturnare);
             this.Controls.Add(this.labelAlegereFilm);
             this.Controls.Add(this.menuStrip1);
@@ -325,7 +338,7 @@
 
         private System.Windows.Forms.Label labelAlegereFilm;
         private System.Windows.Forms.Label labelReturnare;
-        private System.Windows.Forms.ComboBox cbCategorie;
+        private System.Windows.Forms.ComboBox cbFilm;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button buttonDetalii;
         private System.Windows.Forms.Label labelNume;
@@ -337,7 +350,6 @@
         private System.Windows.Forms.Label labelAdresa;
         private System.Windows.Forms.TextBox tbTelefon;
         private System.Windows.Forms.Label labelTelefon;
-        private System.Windows.Forms.TextBox tbSex;
         private System.Windows.Forms.Label labelSex;
         private System.Windows.Forms.TextBox tbVarsta;
         private System.Windows.Forms.Label labelVarsta;
@@ -347,5 +359,7 @@
         private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem acasaToolStripMenuItem;
+        private System.Windows.Forms.Button buttonComanda;
+        private System.Windows.Forms.ComboBox cbSex;
     }
 }

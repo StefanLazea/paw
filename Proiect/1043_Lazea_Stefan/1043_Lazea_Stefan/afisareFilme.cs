@@ -27,6 +27,9 @@ namespace _1043_Lazea_Stefan
 
         private void Form3_Activated(object sender, EventArgs e)
         {
+            closeToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Space;
+            inchideAplicatiaToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Escape;
+
             listView1.Items.Clear();
             pictureBoxHeight = pictureBox1.Height;
             pictureBoxWidth = pictureBox1.Width;
@@ -128,6 +131,16 @@ namespace _1043_Lazea_Stefan
                     
                 }
             }
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void inchideAplicatiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -16,9 +16,7 @@ namespace _1043_Lazea_Stefan
     {
         string connString = "";
         bool isChecked = false;
-        List<Categorie> listaCategorii = new List<Categorie>();
-        OleDbConnection conexiune;
-        OleDbCommand comanda;
+        Clienti client;
 
         public inchiriereFilm()
         {
@@ -26,7 +24,6 @@ namespace _1043_Lazea_Stefan
             this.CenterToScreen();
 
             connString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = proiect.accdb";
-            conexiune = new OleDbConnection(connString);
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -47,9 +44,9 @@ namespace _1043_Lazea_Stefan
                 List<Filme> listaFilme = Filme.getAllMovies(connString);
                 foreach (Filme filme in listaFilme)
                 {
-                    cbCategorie.Items.Add(filme.Denumire);
+                    cbFilm.Items.Add(filme.Denumire);
                 }
-                cbCategorie.SelectedIndex = 0;
+                cbFilm.SelectedIndex = 0;
 
             }
             catch (Exception ex)
@@ -59,57 +56,7 @@ namespace _1043_Lazea_Stefan
             }
         }
 
-        private void rbContExistent_CheckedChanged(object sender, EventArgs e)
-        {
-            isChecked = rbContExistent.Checked;
-        }
-
-        private void rbContExistent_Click(object sender, EventArgs e)
-        {
-            if (rbContExistent.Checked && !isChecked)
-            {
-                rbContExistent.Checked = false;
-                tbAdresa.Visible = true;
-                labelAdresa.Visible = true;
-                labelPrenume.Visible = true;
-                labelNume.Visible = true;
-                labelVarsta.Visible = true;
-                labelSex.Visible = true;
-                labelUsername.Visible = true;
-                labelPassword.Visible = true;
-                labelTelefon.Visible = true;
-
-                tbAdresa.Visible = true;
-                tbNume.Visible = true;
-                tbPrenume.Visible = true;
-                tbSex.Visible = true;
-                tbVarsta.Visible = true;
-                tbTelefon.Visible = true;
-                tbUsername.Visible = true;
-                tbPassword.Visible = true;
-                     
-            }
-            else
-            {
-                rbContExistent.Checked = true;
-                tbTelefon.Hide();
-                tbNume.Hide();
-                labelNume.Hide();
-                tbPrenume.Hide();
-                labelPrenume.Hide();
-                tbVarsta.Hide();
-                labelVarsta.Hide();
-                tbSex.Hide();
-                labelSex.Hide();
-                tbAdresa.Hide();
-                labelAdresa.Hide();
-                labelTelefon.Hide();
-                isChecked = false;
-
-                
-            }
-        }
-
+       
         private void acasaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             home form = new home();
@@ -117,5 +64,47 @@ namespace _1043_Lazea_Stefan
             form.ShowDialog();
         }
 
+        private void buttonComanda_Click(object sender, EventArgs e)
+        {
+            OleDbConnection conn = new OleDbConnection(connString);
+            OleDbCommand comanda = new OleDbCommand();
+            comanda.Connection = conn;
+            try
+            {
+                conn.Open();
+                comanda.CommandText = "Select MAX(id) FROM clienti";
+                int id = Convert.ToInt32(comanda.ExecuteScalar())+1;
+
+                int idFilm = Filme.findMovieIdByName(connString, cbFilm.SelectedItem.ToString());
+                //DateTime data = Convert.ToDateTime(dateTimePicker1.Text);
+
+                string nume = tbNume.Text;
+                string prenume = tbPrenume.Text;
+                string adresa = tbAdresa.Text;
+                string telefon = tbTelefon.Text;
+                string sex = cbSex.SelectedItem.ToString();
+                int varsta = Convert.ToInt32(tbVarsta.Text);
+                string username = tbUsername.Text;
+                string password = tbPassword.Text;
+
+                client = new Clienti(id, nume, prenume, adresa, telefon, sex, varsta, username, password);
+                client.save(connString);
+
+                MessageBox.Show("Succes");
+
+                this.Hide();
+                afisareFilme form = new afisareFilme();
+                form.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+
+            }
+        }
     }
 }

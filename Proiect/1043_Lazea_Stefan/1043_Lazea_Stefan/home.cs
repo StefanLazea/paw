@@ -30,5 +30,11 @@ namespace _1043_Lazea_Stefan
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            inchiriereFilm form = new inchiriereFilm();
+            form.ShowDialog();
+        }
     }
 }
