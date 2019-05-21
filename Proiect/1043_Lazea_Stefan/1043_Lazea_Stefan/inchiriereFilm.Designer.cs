@@ -53,6 +53,7 @@
             this.buttonComanda = new System.Windows.Forms.Button();
             this.cbSex = new System.Windows.Forms.ComboBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.buttonPrint = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -266,7 +267,7 @@
             // 
             // buttonComanda
             // 
-            this.buttonComanda.Location = new System.Drawing.Point(292, 506);
+            this.buttonComanda.Location = new System.Drawing.Point(286, 499);
             this.buttonComanda.Name = "buttonComanda";
             this.buttonComanda.Size = new System.Drawing.Size(181, 37);
             this.buttonComanda.TabIndex = 23;
@@ -292,11 +293,21 @@
             this.dateTimePicker.Size = new System.Drawing.Size(426, 26);
             this.dateTimePicker.TabIndex = 25;
             // 
+            // buttonPrint
+            // 
+            this.buttonPrint.Location = new System.Drawing.Point(380, 231);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(265, 43);
+            this.buttonPrint.TabIndex = 26;
+            this.buttonPrint.Text = "Printeaza comanda";
+            this.buttonPrint.UseVisualStyleBackColor = true;
+            // 
             // inchiriereFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 577);
+            this.Controls.Add(this.buttonPrint);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.cbSex);
             this.Controls.Add(this.buttonComanda);
@@ -360,5 +371,6 @@
         private System.Windows.Forms.Button buttonComanda;
         private System.Windows.Forms.ComboBox cbSex;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.Button buttonPrint;
     }
 }

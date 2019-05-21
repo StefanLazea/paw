@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Drawing.Printing;
 
 
 namespace _1043_Lazea_Stefan
@@ -15,14 +16,12 @@ namespace _1043_Lazea_Stefan
     public partial class inchiriereFilm : Form
     {
         string connString = "";
-        bool isChecked = false;
         Clienti client;
 
         public inchiriereFilm()
         {
             InitializeComponent();
             this.CenterToScreen();
-
             connString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = proiect.accdb";
         }
 
@@ -94,7 +93,6 @@ namespace _1043_Lazea_Stefan
                 inchiriere.save(connString);
 
                 MessageBox.Show("Succes");
-
                 this.Hide();
                 afisareFilme form = new afisareFilme();
                 form.ShowDialog();
@@ -120,5 +118,6 @@ namespace _1043_Lazea_Stefan
             return Convert.ToInt32(comanda.ExecuteScalar()) + 1;
 
         }
+
     }
 }
