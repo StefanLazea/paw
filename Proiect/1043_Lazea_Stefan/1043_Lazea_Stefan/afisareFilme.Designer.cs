@@ -80,7 +80,7 @@
             // 
             // columnHeader8
             // 
-            this.columnHeader8.Text = "Gen";
+            this.columnHeader8.Text = "Categorie";
             // 
             // columnHeader9
             // 
@@ -166,7 +166,7 @@
             this.buttonFilm.UseVisualStyleBackColor = true;
             this.buttonFilm.Click += new System.EventHandler(this.buttonFilm_Click);
             // 
-            // Form3
+            // afisareFilme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -178,7 +178,7 @@
             this.Controls.Add(this.listView1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Form3";
+            this.Name = "afisareFilme";
             this.Text = "Filme";
             this.Activated += new System.EventHandler(this.Form3_Activated);
             this.contextMenuStrip1.ResumeLayout(false);

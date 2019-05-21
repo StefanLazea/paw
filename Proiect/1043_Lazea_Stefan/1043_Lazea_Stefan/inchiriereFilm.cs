@@ -128,5 +128,6 @@ namespace _1043_Lazea_Stefan
             this.Hide();
             form.ShowDialog();
         }
+
     }
 }

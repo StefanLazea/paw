@@ -12,7 +12,7 @@ namespace _1043_Lazea_Stefan
     {
         private int id;
         private string denumire;
-        private string gen;
+        private int idCategorie;
         private DateTime dataLansare;
         private double durata;
         private float pretInchiriere;
@@ -23,16 +23,14 @@ namespace _1043_Lazea_Stefan
         }
 
         public Filme(
-            int id,
             string denumire,
-            string gen, 
+            int idCategorie, 
             DateTime dataLansare, 
             double durata, 
             float pretInchiriere
          ) {
-            this.id = id;
             this.denumire = denumire;
-            this.gen = gen;
+            this.idCategorie = idCategorie;
             this.dataLansare = dataLansare;
             this.durata = durata;
             this.pretInchiriere = pretInchiriere;
@@ -51,10 +49,10 @@ namespace _1043_Lazea_Stefan
             set { this.denumire = value; }
         }
 
-        public string Gen
+        public int IdCategorie
         {
-            get { return this.gen; }
-            set { this.gen = value; }
+            get { return this.idCategorie; }
+            set { this.idCategorie = value; }
         }
 
         public DateTime Datalansare
@@ -68,7 +66,6 @@ namespace _1043_Lazea_Stefan
             get { return this.durata; }
             set { this.durata = value; }
         }
-
 
         public float PretInchiriere
         {
@@ -105,10 +102,43 @@ namespace _1043_Lazea_Stefan
                 " lei si are o durata de " + this.durata + "\n";
         }
 
+        //public void save(string connString, string imgPath)
+        //{
+        //    OleDbConnection conexiune = new OleDbConnection(connString);
+        //    OleDbCommand comanda = new OleDbCommand();
+        //    comanda.Connection = conexiune;
+        //    try
+        //    {
+        //        conexiune.Open();
+        //        comanda.CommandText = "Select MAX(id) FROM filme";
+        //        int id = Convert.ToInt32(comanda.ExecuteScalar());
+
+        //        comanda.CommandText = "INSERT INTO filme VALUES(?,?,?,?,?,?,?)";
+        //        comanda.Parameters.Add("id", OleDbType.Integer).Value = id + 1;
+        //        comanda.Parameters.Add("denumire", OleDbType.Char, 30).Value = this.denumire;
+        //        comanda.Parameters.Add("id_categorie", OleDbType.Integer).Value = 3;
+        //        comanda.Parameters.Add("dataLansare", OleDbType.Date).Value = this.dataLansare;
+        //        comanda.Parameters.Add("durata", OleDbType.Double).Value = this.durata;
+        //        comanda.Parameters.Add("pretInchiriere", OleDbType.Double).Value = this.pretInchiriere;
+        //        comanda.Parameters.Add("picture", OleDbType.Char).Value = imgPath;
+
+        //        comanda.ExecuteNonQuery();
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        conexiune.Close();
+        //    }
+        //}
+
         public static List<Filme> getAll(string connString, int userId, string arguments)
         {
             OleDbConnection conexiune = new OleDbConnection(connString);
-            OleDbCommand comanda = new OleDbCommand("SELECT * FROM filme");
+            OleDbCommand comanda = new OleDbCommand("SELECT * FROM filme", conexiune);
 
             List<Filme> listaFilme = new List<Filme>();
             try
@@ -133,6 +163,6 @@ namespace _1043_Lazea_Stefan
                 conexiune.Close();
             }
         }
-
+        
     }
 }

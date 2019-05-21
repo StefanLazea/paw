@@ -28,7 +28,6 @@ namespace _1043_Lazea_Stefan
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             OleDbConnection conn = new OleDbConnection(connString);
             OleDbCommand comanda = new OleDbCommand();
             comanda.Connection = conn;
@@ -60,7 +59,8 @@ namespace _1043_Lazea_Stefan
                     comanda.CommandText = "INSERT INTO filme VALUES(?,?,?,?,?,?,?)";
                     comanda.Parameters.Add("id", OleDbType.Integer).Value = id + 1;
                     comanda.Parameters.Add("denumire", OleDbType.Char, 30).Value = tbDenumire.Text;
-                    comanda.Parameters.Add("gen", OleDbType.Char, 30).Value = "nimic";
+                    int idCategorie = Categorie.getCategoryIdByName(connString, cbCategorie.SelectedItem.ToString());
+                    comanda.Parameters.Add("id_categorie", OleDbType.Integer).Value = idCategorie; 
                     comanda.Parameters.Add("data", OleDbType.Date).Value = dateTimePicker.Text.ToString();
                     comanda.Parameters.Add("durata", OleDbType.Double).Value = Convert.ToDouble(tbDurata.Text);
                     comanda.Parameters.Add("pretInchiriere", OleDbType.Double).Value = Convert.ToDouble(tbPret.Text);
@@ -83,8 +83,32 @@ namespace _1043_Lazea_Stefan
                     conn.Close();
 
                 }
+
+
             }
         }
+
+        //public int test(string denumire)
+        //{
+
+         
+        //    OleDbConnection conn = new OleDbConnection(connString);
+        //    OleDbCommand comanda = new OleDbCommand("SELECT id from categorii where denumire='" + denumire + "'", conn);
+        //    try
+        //    {
+        //        conn.Open();
+
+        //        return Convert.ToInt32(comanda.ExecuteScalar());
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //}
         
 
         private void button2_Click(object sender, EventArgs e)

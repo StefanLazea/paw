@@ -7,7 +7,7 @@ using System.Data.OleDb;
 
 namespace _1043_Lazea_Stefan
 {
-    class Categorie
+    public class Categorie
     {
         private int id;
         private string denumire;
@@ -16,6 +16,7 @@ namespace _1043_Lazea_Stefan
         {
 
         }
+
 
         public Categorie(int id, string denumire)
         {
@@ -65,7 +66,7 @@ namespace _1043_Lazea_Stefan
         public static Categorie getOneById(string connString, int categoryId, string arguments)
         {
             OleDbConnection conexiune = new OleDbConnection(connString);
-            OleDbCommand comanda = new OleDbCommand("SELECT * FROM categorii WHERE id="+categoryId);
+            OleDbCommand comanda = new OleDbCommand("SELECT * FROM categorii WHERE id="+categoryId, conexiune);
 
             try
             {
@@ -88,6 +89,54 @@ namespace _1043_Lazea_Stefan
             finally
             {
                 conexiune.Close();
+            }
+        }
+
+        public static int getCategoryIdByName(string connString, string denumire)
+        {
+
+
+            OleDbConnection conn = new OleDbConnection(connString);
+            OleDbCommand comanda = new OleDbCommand("SELECT id from categorii where denumire='" + denumire + "'", conn);
+            try
+            {
+                conn.Open();
+
+                return Convert.ToInt32(comanda.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
+        //nothing
+        public static string getCategoryNameById(string connString, string idCategory)
+        {
+            OleDbConnection conn = new OleDbConnection(connString);
+            OleDbCommand comanda = new OleDbCommand("SELECT denumire from categorii where id='" + idCategory + "'", conn);
+            //string nume = Categorie.getCategoryNameById(connString, reader["id_categorie"].ToString());
+            //OleDbCommand comanda2 = new OleDbCommand("SELECT denumire from categorii where id='" + reader["id_categorie"].ToString() + "'", conn);
+            //MessageBox.Show(Convert.ToString(comanda2.ExecuteScalar()));
+            ////itm.SubItems.Add(comanda2.ExecuteScalar());
+            try
+            {
+                conn.Open();
+
+                return comanda.ExecuteScalar().ToString();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }

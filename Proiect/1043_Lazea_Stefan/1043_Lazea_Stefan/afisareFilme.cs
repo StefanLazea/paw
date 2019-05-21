@@ -37,13 +37,29 @@ namespace _1043_Lazea_Stefan
                 {
                     
                     ListViewItem itm = new ListViewItem(reader["id"].ToString());
-                    itm.SubItems.Add(reader["denumire"].ToString());
-                    itm.SubItems.Add(reader["id_categorie"].ToString());
-                    itm.SubItems.Add(reader["dataLansare"].ToString());
-                    itm.SubItems.Add(reader["durata"].ToString());
-                    itm.SubItems.Add(reader["pretInchiriere"].ToString());
+                    OleDbConnection conn = new OleDbConnection(connString);
 
-                    listView1.Items.Add(itm);
+                    
+                    try
+                    {
+                        conn.Open();
+
+                        itm.SubItems.Add(reader["denumire"].ToString());
+                        itm.SubItems.Add(reader["id_categorie"].ToString());
+                        itm.SubItems.Add(reader["dataLansare"].ToString());
+                        itm.SubItems.Add(reader["durata"].ToString());
+                        itm.SubItems.Add(reader["pretInchiriere"].ToString());
+                        listView1.Items.Add(itm);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                   
                 }
 
             }
@@ -56,7 +72,7 @@ namespace _1043_Lazea_Stefan
                 conexiune.Close();
             }
         }
-
+       
         private void adaugaFilmToolStripMenuItem_Click(object sender, EventArgs e)
         {
             adaugareFilm formAdaugare = new adaugareFilm();

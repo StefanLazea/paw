@@ -63,16 +63,16 @@
             this.button2.Text = "Statistici";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // Form2
+            // home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(1127, 692);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonFilme);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Form2";
+            this.Name = "home";
             this.Text = "Pagina principala";
             this.ResumeLayout(false);
 
