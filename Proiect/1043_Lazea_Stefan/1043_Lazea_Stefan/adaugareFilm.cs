@@ -86,30 +86,7 @@ namespace _1043_Lazea_Stefan
 
 
             }
-        }
-
-        //public int test(string denumire)
-        //{
-
-         
-        //    OleDbConnection conn = new OleDbConnection(connString);
-        //    OleDbCommand comanda = new OleDbCommand("SELECT id from categorii where denumire='" + denumire + "'", conn);
-        //    try
-        //    {
-        //        conn.Open();
-
-        //        return Convert.ToInt32(comanda.ExecuteScalar());
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    finally
-        //    {
-        //        conn.Close();
-        //    }
-        //}
-        
+        }  
 
         private void button2_Click(object sender, EventArgs e)
         {

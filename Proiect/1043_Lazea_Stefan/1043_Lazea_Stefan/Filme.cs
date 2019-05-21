@@ -23,12 +23,14 @@ namespace _1043_Lazea_Stefan
         }
 
         public Filme(
+            int id,
             string denumire,
             int idCategorie, 
             DateTime dataLansare, 
             double durata, 
             float pretInchiriere
          ) {
+            this.id = id;
             this.denumire = denumire;
             this.idCategorie = idCategorie;
             this.dataLansare = dataLansare;
@@ -135,12 +137,13 @@ namespace _1043_Lazea_Stefan
         //    }
         //}
 
-        public static List<Filme> getAll(string connString, int userId, string arguments)
+        public static List<Filme> getAllMovies(string connString)
         {
             OleDbConnection conexiune = new OleDbConnection(connString);
             OleDbCommand comanda = new OleDbCommand("SELECT * FROM filme", conexiune);
 
             List<Filme> listaFilme = new List<Filme>();
+           
             try
             {
                 conexiune.Open();
@@ -149,8 +152,12 @@ namespace _1043_Lazea_Stefan
                 {
                     int id = Convert.ToInt32(reader["ID"].ToString());
                     string denumire = reader["denumire"].ToString();
+                    int idCategorie = Convert.ToInt32(reader["id_categorie"].ToString());
+                    DateTime date = Convert.ToDateTime(reader["dataLansare"].ToString());
+                    double durata = Convert.ToDouble(reader["durata"].ToString());
+                    float pret = (float)Convert.ToDouble(reader["pretInchiriere"].ToString());
 
-                    //listaFilme.Add(new Filme(id, denumire));
+                    listaFilme.Add(new Filme(id, denumire, idCategorie, date, durata, pret));
                 }
                 return listaFilme;
             }
