@@ -39,8 +39,14 @@ namespace _1043_Lazea_Stefan
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Statistici form = new Statistici();
+            Grafice form = new Grafice();
             form.ShowDialog();
+        }
+
+        private void buttonCategoriePreferata_Click(object sender, EventArgs e)
+        {
+            CategoriePreferata form = new CategoriePreferata();
+            form.ShowDialog(); 
         }
     }
 }

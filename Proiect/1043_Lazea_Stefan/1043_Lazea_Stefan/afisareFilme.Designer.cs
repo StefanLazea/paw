@@ -38,15 +38,15 @@
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.stergeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adaugaFeedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adaugaRecenzieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.adaugaFilmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acasaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonSterge = new System.Windows.Forms.Button();
-            this.buttonFilm = new System.Windows.Forms.Button();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inchideAplicatiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonSterge = new System.Windows.Forms.Button();
+            this.buttonFilm = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -103,23 +103,23 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stergeToolStripMenuItem,
-            this.adaugaFeedbackToolStripMenuItem});
+            this.adaugaRecenzieToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(224, 64);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(241, 97);
             // 
             // stergeToolStripMenuItem
             // 
             this.stergeToolStripMenuItem.Name = "stergeToolStripMenuItem";
-            this.stergeToolStripMenuItem.Size = new System.Drawing.Size(223, 30);
+            this.stergeToolStripMenuItem.Size = new System.Drawing.Size(240, 30);
             this.stergeToolStripMenuItem.Text = "Sterge";
             this.stergeToolStripMenuItem.Click += new System.EventHandler(this.stergeToolStripMenuItem_Click);
             // 
-            // adaugaFeedbackToolStripMenuItem
+            // adaugaRecenzieToolStripMenuItem
             // 
-            this.adaugaFeedbackToolStripMenuItem.Name = "adaugaFeedbackToolStripMenuItem";
-            this.adaugaFeedbackToolStripMenuItem.Size = new System.Drawing.Size(223, 30);
-            this.adaugaFeedbackToolStripMenuItem.Text = "Adauga feedback";
-            this.adaugaFeedbackToolStripMenuItem.Click += new System.EventHandler(this.adaugaFeedbackToolStripMenuItem_Click);
+            this.adaugaRecenzieToolStripMenuItem.Name = "adaugaRecenzieToolStripMenuItem";
+            this.adaugaRecenzieToolStripMenuItem.Size = new System.Drawing.Size(240, 30);
+            this.adaugaRecenzieToolStripMenuItem.Text = "Adauga recenzie";
+            this.adaugaRecenzieToolStripMenuItem.Click += new System.EventHandler(this.adaugaRecenzieToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -160,6 +160,20 @@
             this.acasaToolStripMenuItem.Text = "Acasa";
             this.acasaToolStripMenuItem.Click += new System.EventHandler(this.acasaToolStripMenuItem_Click);
             // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(67, 29);
+            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
+            // 
+            // inchideAplicatiaToolStripMenuItem
+            // 
+            this.inchideAplicatiaToolStripMenuItem.Name = "inchideAplicatiaToolStripMenuItem";
+            this.inchideAplicatiaToolStripMenuItem.Size = new System.Drawing.Size(153, 29);
+            this.inchideAplicatiaToolStripMenuItem.Text = "Inchide Aplicatia";
+            this.inchideAplicatiaToolStripMenuItem.Click += new System.EventHandler(this.inchideAplicatiaToolStripMenuItem_Click);
+            // 
             // buttonSterge
             // 
             this.buttonSterge.Location = new System.Drawing.Point(999, 589);
@@ -180,20 +194,6 @@
             this.buttonFilm.Text = "Inchiriaza film";
             this.buttonFilm.UseVisualStyleBackColor = true;
             this.buttonFilm.Click += new System.EventHandler(this.buttonFilm_Click);
-            // 
-            // closeToolStripMenuItem
-            // 
-            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(67, 29);
-            this.closeToolStripMenuItem.Text = "Close";
-            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
-            // 
-            // inchideAplicatiaToolStripMenuItem
-            // 
-            this.inchideAplicatiaToolStripMenuItem.Name = "inchideAplicatiaToolStripMenuItem";
-            this.inchideAplicatiaToolStripMenuItem.Size = new System.Drawing.Size(153, 29);
-            this.inchideAplicatiaToolStripMenuItem.Text = "Inchide Aplicatia";
-            this.inchideAplicatiaToolStripMenuItem.Click += new System.EventHandler(this.inchideAplicatiaToolStripMenuItem_Click);
             // 
             // afisareFilme
             // 
@@ -234,7 +234,7 @@
         private System.Windows.Forms.Button buttonSterge;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem stergeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem adaugaFeedbackToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adaugaRecenzieToolStripMenuItem;
         private System.Windows.Forms.Button buttonFilm;
         private System.Windows.Forms.ToolStripMenuItem acasaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;

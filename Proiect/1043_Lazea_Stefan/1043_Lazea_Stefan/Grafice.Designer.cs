@@ -1,6 +1,6 @@
 ﻿namespace _1043_Lazea_Stefan
 {
-    partial class Statistici
+    partial class Grafice
     {
         /// <summary>
         /// Required designer variable.

@@ -32,6 +32,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.buttonCategoriePreferata = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonFilme
@@ -75,11 +76,22 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // buttonCategoriePreferata
+            // 
+            this.buttonCategoriePreferata.Location = new System.Drawing.Point(41, 466);
+            this.buttonCategoriePreferata.Name = "buttonCategoriePreferata";
+            this.buttonCategoriePreferata.Size = new System.Drawing.Size(326, 75);
+            this.buttonCategoriePreferata.TabIndex = 5;
+            this.buttonCategoriePreferata.Text = "Alege categoria preferata";
+            this.buttonCategoriePreferata.UseVisualStyleBackColor = true;
+            this.buttonCategoriePreferata.Click += new System.EventHandler(this.buttonCategoriePreferata_Click);
+            // 
             // home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1127, 692);
+            this.Controls.Add(this.buttonCategoriePreferata);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -97,5 +109,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonCategoriePreferata;
     }
 }

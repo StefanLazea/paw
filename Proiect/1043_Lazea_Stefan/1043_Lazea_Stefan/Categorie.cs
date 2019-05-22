@@ -29,6 +29,11 @@ namespace _1043_Lazea_Stefan
             return this.denumire;
         }
 
+        public int Id
+        {
+            get { return this.id; }
+        }
+
         public string Denumire
         {
             get { return this.denumire; }

@@ -105,7 +105,7 @@ namespace _1043_Lazea_Stefan
        
         }
 
-        private void adaugaFeedbackToolStripMenuItem_Click(object sender, EventArgs e)
+        private void adaugaRecenzieToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem itm in listView1.Items)
             {

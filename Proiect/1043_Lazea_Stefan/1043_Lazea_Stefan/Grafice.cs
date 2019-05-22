@@ -13,7 +13,7 @@ using System.Data.OleDb;
 
 namespace _1043_Lazea_Stefan
 {
-    public partial class Statistici : Form
+    public partial class Grafice : Form
     {
         double[] vect = new double[20];
         int nrElem = 0;
@@ -25,12 +25,13 @@ namespace _1043_Lazea_Stefan
         Graphics g;
         Bitmap bmp;
 
-        public Statistici()
+        public Grafice()
         {
             InitializeComponent();
             connString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = proiect.accdb";
             bmp = new Bitmap(panel1.Width, panel1.Height);
             g = Graphics.FromImage(bmp);
+            this.CenterToScreen();
 
         }
 
@@ -103,18 +104,16 @@ namespace _1043_Lazea_Stefan
                         new Point((int)(recs[i + 1].Location.X + latime / 2), recs[i + 1].Location.Y));
                 }
             }
+            else
+            {
+                e.Graphics.DrawImage(bmp, 0, 0);
+            }
         }
 
         void pd_print(object sender, PrintPageEventArgs e)
         {
             if (vb == true)
             {
-                //daca avem datele incarcate
-                /*4 metode
-                Graphics g = panel1.CreateGraphics();
-                Graphics g = Graphics.FromHwnd(panel1.Handle());
-                Graphics g = Graphics.FromImage(img);
-                */
                 Graphics g = e.Graphics; //diverse metode pentru desenare
 
                 Rectangle rect = new Rectangle(
@@ -158,6 +157,60 @@ namespace _1043_Lazea_Stefan
                         new Point((int)(recs[i + 1].Location.X + latime / 2), recs[i + 1].Location.Y));
                 }
             }
+            else
+            {
+                Graphics grap = e.Graphics;
+
+                Rectangle rect = new Rectangle(e.PageBounds.X, e.PageBounds.Y, e.PageBounds.Width, e.PageBounds.Height);
+
+                Pen pen = new Pen(Color.Blue, 3);
+
+                grap.DrawRectangle(pen, rect);
+                               
+                OleDbConnection conexiune = new OleDbConnection(connString);
+                OleDbDataAdapter adaptor = new OleDbDataAdapter("SELECT * FROM clienti", conexiune);
+
+
+                DataSet ds = new DataSet();
+                adaptor.Fill(ds, "clienti");
+
+                DataTable tabela = ds.Tables["clienti"];
+
+                DataRow[] rows = tabela.Select("sex = 'Masculin'", "nume");
+                int nrBarbati = 0;
+                foreach (DataRow linie in rows)
+                {
+                    nrBarbati++;
+                }
+
+                DataRow[] rowsf = tabela.Select("sex = 'Feminin'", "nume");
+                int nrFete = 0;
+                foreach (DataRow linie in rowsf)
+                {
+                    nrFete++;
+                }
+
+                int t = nrFete + nrBarbati;
+
+                float x = (360 * nrFete) / t; //gradele pt femei
+                float y = (360 * nrBarbati) / t; //gradele pt barbati
+
+
+                Pen pen1 = new Pen(Color.Black, 3);
+                Rectangle rec = new Rectangle(250, 250, 300, 150);
+                Brush br11 = new SolidBrush(Color.Red);
+                Brush br1 = new SolidBrush(Color.Blue);
+                grap.DrawEllipse(pen1, rec);
+                grap.FillPie(br11, rec, 0, x);
+                grap.FillPie(br1, rec, x, y);
+                grap.DrawString("femei", new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold),
+                  new SolidBrush(Color.Black), new Point(270, 120));
+
+                grap.DrawString("barbati", new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold),
+                   new SolidBrush(Color.Black), new Point(270, 90));
+
+
+            }
         }
         private void previewToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -176,10 +229,9 @@ namespace _1043_Lazea_Stefan
 
         private void piechartToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            panel1.Invalidate();
+         
             OleDbConnection conexiune = new OleDbConnection(connString);
             OleDbDataAdapter adaptor = new OleDbDataAdapter("SELECT * FROM clienti", conexiune);
-
 
             DataSet ds = new DataSet();
             adaptor.Fill(ds, "clienti");
@@ -208,10 +260,10 @@ namespace _1043_Lazea_Stefan
 
             Pen pen = new Pen(Color.Black, 3);
             Rectangle rec = new Rectangle(40, 40, 300, 150);
-            Brush br = new SolidBrush(Color.LightPink);
+            Brush brWomen = new SolidBrush(Color.Red);
             Brush br1 = new SolidBrush(Color.Blue);
             g.DrawEllipse(pen, rec);
-            g.FillPie(br, rec, 0, x);
+            g.FillPie(brWomen, rec, 0, x);
             g.FillPie(br1, rec, x, y);
 
             g.DrawString("femei", new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold),
