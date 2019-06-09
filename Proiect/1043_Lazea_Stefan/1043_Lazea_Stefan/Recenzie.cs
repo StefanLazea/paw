@@ -100,5 +100,43 @@ namespace _1043_Lazea_Stefan
             }
         }
 
+        public static float getAverageOfNotesForAMovie(string connString, int movieId)
+        {
+            OleDbConnection conexiune = new OleDbConnection(connString);
+            OleDbCommand comanda = new OleDbCommand("SELECT * FROM recenzii WHERE id=" + movieId, conexiune);
+
+            List<Filme> listaFilme = new List<Filme>();
+            int suma = 0;
+            int n = 0;
+            List<int> lista = new List<int>();
+            try
+            {
+                conexiune.Open();
+                OleDbDataReader reader = comanda.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["ID"].ToString());
+                    int nota = Convert.ToInt32(reader["nota"].ToString());
+
+                    lista.Add(nota);
+                }
+               
+                foreach(int i in lista)
+                {
+                    suma += i;
+                }
+                return (float)suma / lista.Count();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexiune.Close();
+            }
+        }
     }
+
+   
 }

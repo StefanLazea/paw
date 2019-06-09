@@ -18,10 +18,15 @@ namespace _1043_Lazea_Stefan
         double[] vect = new double[20];
         int nrElem = 0;
         bool vb = false;
-        const int marg = 10; //readonly poate fi initializat ulterior
+        const int marg = 10; 
         Color culoare = Color.Blue;
-        Font font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold); // A 4-A varianta
+        Color culoarePieChart = Color.Black;
+        Color culoarePieF = Color.Red;
+        Color culoarePieM = Color.Blue;
+
+        Font font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold);
         String connString;
+
         Graphics g;
         Bitmap bmp;
 
@@ -176,30 +181,30 @@ namespace _1043_Lazea_Stefan
 
                 DataTable tabela = ds.Tables["clienti"];
 
-                DataRow[] rows = tabela.Select("sex = 'Masculin'", "nume");
+                DataRow[] rowsMGender = tabela.Select("sex = 'Masculin'", "nume");
                 int nrBarbati = 0;
-                foreach (DataRow linie in rows)
+                foreach (DataRow linie in rowsMGender)
                 {
                     nrBarbati++;
                 }
 
-                DataRow[] rowsf = tabela.Select("sex = 'Feminin'", "nume");
+                DataRow[] rowsFGender = tabela.Select("sex = 'Feminin'", "nume");
                 int nrFete = 0;
-                foreach (DataRow linie in rowsf)
+                foreach (DataRow linie in rowsFGender)
                 {
                     nrFete++;
                 }
 
-                int t = nrFete + nrBarbati;
+                int total = nrFete + nrBarbati;
 
-                float x = (360 * nrFete) / t; //gradele pt femei
-                float y = (360 * nrBarbati) / t; //gradele pt barbati
+                float x = (360 * nrFete) / total;
+                float y = (360 * nrBarbati) / total; 
 
 
-                Pen pen1 = new Pen(Color.Black, 3);
+                Pen pen1 = new Pen(culoarePieChart, 3);
                 Rectangle rec = new Rectangle(250, 250, 300, 150);
-                Brush br11 = new SolidBrush(Color.Red);
-                Brush br1 = new SolidBrush(Color.Blue);
+                Brush br11 = new SolidBrush(culoarePieF);
+                Brush br1 = new SolidBrush(culoarePieM);
                 grap.DrawEllipse(pen1, rec);
                 grap.FillPie(br11, rec, 0, x);
                 grap.FillPie(br1, rec, x, y);
@@ -231,46 +236,65 @@ namespace _1043_Lazea_Stefan
         {
          
             OleDbConnection conexiune = new OleDbConnection(connString);
-            OleDbDataAdapter adaptor = new OleDbDataAdapter("SELECT * FROM clienti", conexiune);
+            OleDbDataAdapter adapt = new OleDbDataAdapter("SELECT * FROM clienti", conexiune);
 
             DataSet ds = new DataSet();
-            adaptor.Fill(ds, "clienti");
-
+            adapt.Fill(ds, "clienti");
+     
             DataTable tabela = ds.Tables["clienti"];
 
-            DataRow[] rows = tabela.Select("sex = 'Masculin'", "nume");
-            int males = 0;
-            foreach (DataRow linie in rows)
+            DataRow[] rowsMGender = tabela.Select("sex = 'Masculin'", "nume");
+            int nrBarbati = 0;
+            foreach (DataRow row in rowsMGender)
             {
-                males++;
+                nrBarbati++;
             }
 
-            DataRow[] rowsf = tabela.Select("sex = 'Feminin'", "nume");
-            int females = 0;
-            foreach (DataRow linie in rowsf)
+            DataRow[] rowsFGender= tabela.Select("sex = 'Feminin'", "nume");
+            int nrFete = 0;
+            foreach (DataRow linie in rowsFGender)
             {
-                females++;
+                nrFete++;
             }
 
-            int total = males + females;
 
-            float x = (360 * females) / total; //gradele pt femei
-            float y = (360 * males) / total; //gradele pt barbati
+            int total = nrFete + nrBarbati;
+
+            float x = (360 * nrFete) / total;
+            float y = (360 * nrBarbati) / total;
+
 
 
             Pen pen = new Pen(Color.Black, 3);
             Rectangle rec = new Rectangle(40, 40, 300, 150);
-            Brush brWomen = new SolidBrush(Color.Red);
-            Brush br1 = new SolidBrush(Color.Blue);
+            Brush brWomen = new SolidBrush(culoarePieF);
+            Brush br1 = new SolidBrush(culoarePieM);
             g.DrawEllipse(pen, rec);
-            g.FillPie(brWomen, rec, 0, x);
-            g.FillPie(br1, rec, x, y);
 
-            g.DrawString("femei", new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold),
-               new SolidBrush(Color.Black), new Point(270, 120));
-
-            g.DrawString("barbati", new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold),
+            if(nrFete == 0)
+            {
+                g.FillPie(br1, rec, x, y);
+                g.DrawString("barbati", new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold),
                new SolidBrush(Color.Black), new Point(270, 90));
+            }
+            else if(nrBarbati == 0)
+            {
+                g.FillPie(brWomen, rec, 0, x);
+                g.DrawString("femei", new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold),
+                     new SolidBrush(Color.Black), new Point(270, 120));
+            }
+            else
+            {
+                g.FillPie(brWomen, rec, 0, x);
+                g.FillPie(br1, rec, x, y);
+
+                g.DrawString("femei", new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold),
+                   new SolidBrush(Color.Black), new Point(270, 120));
+
+                g.DrawString("barbati", new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold),
+                   new SolidBrush(Color.Black), new Point(270, 90));
+            }
+           
 
             panel1.Invalidate();
         }

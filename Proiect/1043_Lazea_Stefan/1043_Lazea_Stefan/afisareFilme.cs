@@ -128,7 +128,7 @@ namespace _1043_Lazea_Stefan
                     int idFilm = Convert.ToInt32(itm.SubItems[0].Text);
                     Filme film = Filme.getOneById(connString, idFilm);
                     pictureBox1.Image = (Image)(new Bitmap(new Bitmap(film.Picture), new Size(pictureBoxWidth, pictureBoxHeight)));
-                    
+
                 }
             }
         }

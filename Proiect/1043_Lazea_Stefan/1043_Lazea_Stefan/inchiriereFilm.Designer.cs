@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelAlegereFilm = new System.Windows.Forms.Label();
             this.labelReturnare = new System.Windows.Forms.Label();
             this.cbFilm = new System.Windows.Forms.ComboBox();
@@ -53,7 +54,9 @@
             this.buttonComanda = new System.Windows.Forms.Button();
             this.cbSex = new System.Windows.Forms.ComboBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelAlegereFilm
@@ -292,6 +295,10 @@
             this.dateTimePicker.Size = new System.Drawing.Size(426, 26);
             this.dateTimePicker.TabIndex = 25;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // inchiriereFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -328,6 +335,7 @@
             this.Load += new System.EventHandler(this.Form5_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,5 +368,6 @@
         private System.Windows.Forms.Button buttonComanda;
         private System.Windows.Forms.ComboBox cbSex;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

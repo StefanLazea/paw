@@ -115,7 +115,7 @@ namespace _1043_Lazea_Stefan
         {
             try
             {
-                List<Categorie> listaCategorii = Categorie.getAllCategories(connString, "");
+                List<Categorie> listaCategorii = Categorie.getAllCategories(connString);
                 foreach (Categorie categorie in listaCategorii)
                 {
                     cbCategorie.Items.Add(categorie.ToString());

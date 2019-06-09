@@ -39,7 +39,7 @@ namespace _1043_Lazea_Stefan
             get { return this.denumire; }
         }
 
-        public static List<Categorie> getAllCategories(string connString, string arguments)
+        public static List<Categorie> getAllCategories(string connString)
         {
             OleDbConnection conexiune = new OleDbConnection(connString);
             OleDbCommand comanda = new OleDbCommand("SELECT * FROM categorii", conexiune);

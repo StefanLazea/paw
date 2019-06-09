@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Drawing.Printing;
+using System.Text.RegularExpressions;
 
 
 namespace _1043_Lazea_Stefan
@@ -68,43 +69,64 @@ namespace _1043_Lazea_Stefan
             OleDbConnection conn = new OleDbConnection(connString);
             OleDbCommand comanda = new OleDbCommand();
             comanda.Connection = conn;
-            try
+            Regex regex = new Regex("^[a-zA-Z]+$");
+            //bool hasOnlyAlpha = regex.IsMatch(myTextBox.Text);  && regex.IsMatch(tbNume.Text
+            if (tbNume.Text == "")
             {
-                
-                int idMaxClient = getMaxIdFromDbTable("clienti");
-                int idMaxComanda = getMaxIdFromDbTable("inchirieri");
+                errorProvider1.SetError(tbNume, "Introduceti numele");
 
-            
-                string nume = tbNume.Text;
-                string prenume = tbPrenume.Text;
-                string adresa = tbAdresa.Text;
-                string telefon = tbTelefon.Text;
-                string sex = cbSex.SelectedItem.ToString();
-                int varsta = Convert.ToInt32(tbVarsta.Text);
-                string username = tbUsername.Text;
-                string password = tbPassword.Text;
-                int idFilm = Filme.findMovieIdByName(connString, cbFilm.SelectedItem.ToString());
-                DateTime data = Convert.ToDateTime(dateTimePicker.Text);
-
-                client = new Clienti(idMaxClient, nume, prenume, adresa, telefon, sex, varsta, username, password);
-                client.save(connString);
-
-                Inchirieri inchiriere = new Inchirieri(idMaxComanda, data, idFilm, idMaxClient);
-                inchiriere.save(connString);
-
-                MessageBox.Show("Succes");
-                this.Hide();
-                afisareFilme form = new afisareFilme();
-                form.ShowDialog();
             }
-            catch (Exception ex)
+            else if (tbPrenume.Text == "")
             {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                errorProvider1.Clear();
+                errorProvider1.SetError(tbPrenume, "Introduceti prenumele)");
             }
-            finally
+            else if (tbTelefon.Text == "")
             {
-                conn.Close();
+                errorProvider1.Clear();
+                errorProvider1.SetError(tbTelefon, "Introduceti telefonul ");
+            }
+            else
+            {
+                errorProvider1.Clear();
+                try
+                {
 
+                    int idMaxClient = getMaxIdFromDbTable("clienti");
+                    int idMaxComanda = getMaxIdFromDbTable("inchirieri");
+
+
+                    string nume = tbNume.Text;
+                    string prenume = tbPrenume.Text;
+                    string adresa = tbAdresa.Text;
+                    string telefon = tbTelefon.Text;
+                    string sex = cbSex.SelectedItem.ToString();
+                    int varsta = Convert.ToInt32(tbVarsta.Text);
+                    string username = tbUsername.Text;
+                    string password = tbPassword.Text;
+                    int idFilm = Filme.findMovieIdByName(connString, cbFilm.SelectedItem.ToString());
+                    DateTime data = Convert.ToDateTime(dateTimePicker.Text);
+
+                    client = new Clienti(idMaxClient, nume, prenume, adresa, telefon, sex, varsta, username, password);
+                    client.save(connString);
+
+                    Inchirieri inchiriere = new Inchirieri(idMaxComanda, data, idFilm, idMaxClient);
+                    inchiriere.save(connString);
+
+                    MessageBox.Show("Succes");
+                    this.Hide();
+                    afisareFilme form = new afisareFilme();
+                    form.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+
+                }
             }
         }
 

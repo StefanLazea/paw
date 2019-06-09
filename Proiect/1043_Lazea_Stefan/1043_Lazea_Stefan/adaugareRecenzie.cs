@@ -32,7 +32,7 @@ namespace _1043_Lazea_Stefan
             tbDenumire.Text = film.Denumire;
             string denumireCategorie = Categorie.findCategoryNameById(connString, film.IdCategorie);
             tbCategorie.Text = denumireCategorie;
-
+            tbNotaMedie.Text = Recenzie.getAverageOfNotesForAMovie(connString, idFilm).ToString();
             tbDataLansare.Text = film.Datalansare.ToString();
         }
 

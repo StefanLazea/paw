@@ -14,7 +14,7 @@ namespace _1043_Lazea_Stefan
     {
         private List<Categorie> categorii;
         string connString;
-
+        ListViewItem itmToBeRemoved;
         private List<Categorie> categoriiPreferate;
 
         public CategoriePreferata()
@@ -24,41 +24,16 @@ namespace _1043_Lazea_Stefan
             connString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = proiect.accdb";
 
         }
-
-        private void listBox1_DragDrop(object sender, DragEventArgs e)
-        {
-            string text = e.Data.GetData(typeof(string)).ToString();
-
-            listBox1.Items.Add("bou");
-
-            Categorie curs = new Categorie();
-
-           
-        }
-
-        private void listBox1_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.None;
-
-            if (((e.KeyState & 8) == 8) && (e.AllowedEffect & DragDropEffects.Copy) == DragDropEffects.Copy)
-                e.Effect = DragDropEffects.Copy;
-            else if (((e.AllowedEffect & DragDropEffects.Move) == DragDropEffects.Move))
-                e.Effect = DragDropEffects.Move;
-        }
-
-        private void listBox1_MouseDown(object sender, MouseEventArgs e)
-        {
-            listBox1.DoDragDrop(listBox1.SelectedItem, DragDropEffects.Copy | DragDropEffects.Move);
-        }
-
       
         private void CategoriePreferata_Load(object sender, EventArgs e)
         {
             listView2.Items.Clear();
-            
+            closeToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Space;
+            inchideAplicatiaToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Escape;
+           
             try
             {
-                categorii= Categorie.getAllCategories(connString,"");
+                categorii= Categorie.getAllCategories(connString);
                 foreach (Categorie categorie in categorii)
                 {
                     ListViewItem itm = new ListViewItem(categorie.Id.ToString());
@@ -82,11 +57,41 @@ namespace _1043_Lazea_Stefan
             {
                 if (itm.Selected)
                 {
+                    itmToBeRemoved = itm;
                     listView2.DoDragDrop(itm.SubItems[0].Text, DragDropEffects.Copy | DragDropEffects.Move);
                 }
-            }
+            }    
+        }
+
+        private void closeToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void inchideAplicatiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void textBox1_DragDrop(object sender, DragEventArgs e)
+        {
+            string text = e.Data.GetData(typeof(string)).ToString();
+
+            textBox1.Text += "text";
+     
+        }
+
+        private void textBox1_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.None;
+
             
         }
+
+        private void textBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            textBox1.DoDragDrop(textBox1.Text, DragDropEffects.Copy | DragDropEffects.Move);
+        }
     }
-      
+
 }
