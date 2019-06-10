@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace seminar12.Properties
+namespace WindowsFormsApp1.Properties
 {
 
 

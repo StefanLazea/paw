@@ -62,30 +62,30 @@ namespace sem4
                 note=value;
             }
         }//prin asta se modif tot vectorul
-//doar cand avem tipuri primitive folosim memberwiseclone, altfel facem o copie
-public object Clone()
-{   Student clona=(Student)this.MemberwiseClone();
-    int[]noteNoi=(int[])note.Clone(); //metoda clone se putea implementa si in constructorul cu parametrii
-    clona.note=noteNoi; //vectorul note aferent studentului clona refera noul vector creat
-    return clona; //returneaza obiect
+        //doar cand avem tipuri primitive folosim memberwiseclone, altfel facem o copie
+        public object Clone()
+        {   Student clona=(Student)this.MemberwiseClone();
+            int[]noteNoi=(int[])note.Clone(); //metoda clone se putea implementa si in constructorul cu parametrii
+            clona.note=noteNoi; //vectorul note aferent studentului clona refera noul vector creat
+            return clona; //returneaza obiect
 
-}
+        }
 
-//CompareTo defineste doar criteriul de comparatie; doar Sort il foloseste
-public int CompareTo(object obj)
-{   Student s=(Student) obj; //cast la obiect mereu(transformam obj in Student)
-    //criteriu:dupa medie
-    if(this.medie<s.medie)
-        return -1;
-    else
-        if(this.medie>s.medie)
-            return 1;
-        else return string.Compare(this.nume, s.nume); //comparam dupa nume(comparare string uri de caractere)	
-}
-      /*supraincarcari(functie prin care dam semnificatie operatorilor) de operatori
-       * se face explicit
-       * index se supraincarca doar in clasele cu vectori/colectii
-       * supraincarcare de + */
+        //CompareTo defineste doar criteriul de comparatie; doar Sort il foloseste
+        public int CompareTo(object obj)
+        {   Student s=(Student) obj; //cast la obiect mereu(transformam obj in Student)
+            //criteriu:dupa medie
+            if(this.medie<s.medie)
+                return -1;
+            else
+                if(this.medie>s.medie)
+                    return 1;
+                else return string.Compare(this.nume, s.nume); //comparam dupa nume(comparare string uri de caractere)	
+        }
+        /*supraincarcari(functie prin care dam semnificatie operatorilor) de operatori
+        * se face explicit
+        * index se supraincarca doar in clasele cu vectori/colectii
+        * supraincarcare de + */
 
         public static Student operator +(Student s, int nota)
         {
@@ -128,28 +128,20 @@ public int CompareTo(object obj)
             { if(value>0)
                 note[index]=value;
         }//prin asta se modif un element din vector
+        }
 
-     
-
-
-
-
-
-
-    
-    
-}
-        public float calculeazaMedia()
-        { if(note!=null)
-            {int suma=0;
+        public float calculeazaMedia(){
+            if (note!=null)
+            {
+            int suma=0;
             for(int i=0;i<note.Length;i++)
                 suma+=note[i];
-            return (float)suma/note.Length;}
+            return (float)suma/note.Length;
+            }
         else
             return 0;
         }
-            
-            
+
         }
     }
 

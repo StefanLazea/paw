@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace sem3
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
             Student s1 = new Student();
             Student s2 = new Student(20, "Gigel", 0.0f, new int[3] { 7, 9, 10 },100, 'M');
             Console.WriteLine(s1);
@@ -42,6 +31,4 @@ namespace sem3
             s3.Medie = (float)s3;
             Console.WriteLine("Media lui s3 este: " + s3.Medie);
 
-        }
-    }
-}
+ 

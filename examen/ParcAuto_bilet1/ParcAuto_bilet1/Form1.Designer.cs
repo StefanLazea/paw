@@ -1,4 +1,4 @@
-﻿namespace seminar12
+﻿namespace ParcAuto_bilet1
 {
     partial class Form1
     {
