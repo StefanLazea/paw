@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Telefoane
 {
@@ -22,8 +23,23 @@ namespace Telefoane
             initializare_producatori();
             afisare_producatori(this.producatori);
             afisare_telefoane();
+            Application.ApplicationExit += Application_ApplicationExit;
 
         }
+
+        private void Application_ApplicationExit(object sender, EventArgs e)
+        {
+            FileStream fs = new FileStream("telefoane.dat", FileMode.Create, FileAccess.Write);
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(fs, this.telefoane);
+            fs.Close();
+
+            FileStream fs2 = new FileStream("producatoori.dat", FileMode.Create, FileAccess.Write);
+            BinaryFormatter bf2 = new BinaryFormatter();
+            bf2.Serialize(fs2, this.producatori);
+            fs2.Close();
+        }
+
         private void initializare_producatori()
         {
             Producator p1 = new Producator(100, "APPLE");
@@ -113,6 +129,30 @@ namespace Telefoane
                 afisare_producatori(this.producatori);
 
             }
+        }
+
+        private void buttonDateSortate_Click(object sender, EventArgs e)
+        {
+            this.telefoane.Sort();
+            StreamWriter sw = new StreamWriter("date.txt");
+            foreach(Smartphone s in this.telefoane)
+            {
+                sw.WriteLine(s.ToString());
+            }
+            sw.Close();
+
+            MessageBox.Show("Datele au fost salvate!");
+
+        }
+
+        private void buttonStoc_Click(object sender, EventArgs e)
+        {
+            int total = 0;
+            foreach(Smartphone s in telefoane)
+            {
+                total += (int)s;
+            }
+            MessageBox.Show("stocul total este de " + total + " unitati");
         }
     }
 }

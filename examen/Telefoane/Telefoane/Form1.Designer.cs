@@ -43,6 +43,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.stergereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonDateSortate = new System.Windows.Forms.Button();
+            this.buttonStoc = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +58,7 @@
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(25, 42);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(240, 185);
             this.dataGridView1.TabIndex = 0;
             // 
             // Id
@@ -116,7 +118,7 @@
             // 
             // buttonAdaugareProducatori
             // 
-            this.buttonAdaugareProducatori.Location = new System.Drawing.Point(25, 204);
+            this.buttonAdaugareProducatori.Location = new System.Drawing.Point(25, 251);
             this.buttonAdaugareProducatori.Name = "buttonAdaugareProducatori";
             this.buttonAdaugareProducatori.Size = new System.Drawing.Size(240, 23);
             this.buttonAdaugareProducatori.TabIndex = 2;
@@ -130,27 +132,49 @@
             this.stergereToolStripMenuItem,
             this.modificaToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(122, 48);
             // 
             // stergereToolStripMenuItem
             // 
             this.stergereToolStripMenuItem.Name = "stergereToolStripMenuItem";
-            this.stergereToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.stergereToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.stergereToolStripMenuItem.Text = "Stergere";
             this.stergereToolStripMenuItem.Click += new System.EventHandler(this.stergereToolStripMenuItem_Click);
             // 
             // modificaToolStripMenuItem
             // 
             this.modificaToolStripMenuItem.Name = "modificaToolStripMenuItem";
-            this.modificaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificaToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.modificaToolStripMenuItem.Text = "Modifica";
             this.modificaToolStripMenuItem.Click += new System.EventHandler(this.modificaToolStripMenuItem_Click);
+            // 
+            // buttonDateSortate
+            // 
+            this.buttonDateSortate.Location = new System.Drawing.Point(311, 251);
+            this.buttonDateSortate.Name = "buttonDateSortate";
+            this.buttonDateSortate.Size = new System.Drawing.Size(195, 23);
+            this.buttonDateSortate.TabIndex = 4;
+            this.buttonDateSortate.Text = "Salveaza datele sortate";
+            this.buttonDateSortate.UseVisualStyleBackColor = true;
+            this.buttonDateSortate.Click += new System.EventHandler(this.buttonDateSortate_Click);
+            // 
+            // buttonStoc
+            // 
+            this.buttonStoc.Location = new System.Drawing.Point(561, 251);
+            this.buttonStoc.Name = "buttonStoc";
+            this.buttonStoc.Size = new System.Drawing.Size(217, 23);
+            this.buttonStoc.TabIndex = 5;
+            this.buttonStoc.Text = "Stoc disponibil";
+            this.buttonStoc.UseVisualStyleBackColor = true;
+            this.buttonStoc.Click += new System.EventHandler(this.buttonStoc_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonStoc);
+            this.Controls.Add(this.buttonDateSortate);
             this.Controls.Add(this.buttonAdaugareProducatori);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.dataGridView1);
@@ -178,6 +202,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem stergereToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificaToolStripMenuItem;
+        private System.Windows.Forms.Button buttonDateSortate;
+        private System.Windows.Forms.Button buttonStoc;
     }
 }
 
