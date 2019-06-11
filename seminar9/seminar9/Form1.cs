@@ -109,7 +109,7 @@ namespace seminar9
 
             foreach(Student s in listaStudenti)
             {
-                TreeNode copil = new TreeNode(s.cod + "-" + s.nume + "-" + s.nota);
+                TreeNode copil = new TreeNode(s.cod + "," + s.nume + "," + s.nota);
                 parinte.Nodes.Add(copil);
 
                 TreeNode nepot = new TreeNode();
@@ -134,7 +134,7 @@ namespace seminar9
 
             try
             {
-                cod = Convert.ToInt32(nodSelectat.Text.Split(',')[0]);
+                cod = Convert.ToInt32(nodSelectat.Text.Split(','));
                 foreach(Student s in listaStudenti)
                 {
                     if (s.cod == cod)

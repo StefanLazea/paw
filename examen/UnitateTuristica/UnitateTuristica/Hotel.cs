@@ -20,6 +20,7 @@ namespace UnitateTuristica
         public Hotel(string filename)
         {
             String[] lini = File.ReadAllLines(filename);
+
             this.listaCamere = new List<Camera>();
             for(int i = 0; i < lini.Length; i=i+4)
             {
