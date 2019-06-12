@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace Smartphones
 {
@@ -21,6 +23,21 @@ namespace Smartphones
             
             AdaugareDate();
             AfisareDate();
+            Application.ApplicationExit += Application_ApplicationExit;
+        }
+
+        private void Application_ApplicationExit(object sender, EventArgs e)
+        {
+            List<Device> lista = new List<Device>();
+            foreach(Device d in devices)
+            {
+                lista.Add(d);
+            }
+            
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Device>));
+            FileStream stream = new FileStream("fisieeer.xml", FileMode.Create, FileAccess.Write);
+            serializer.Serialize(stream, lista);
+            stream.Close();
         }
 
         public void AdaugareDate()
