@@ -25,3 +25,15 @@ Seminar 7
 Seminar 9 - Treenode, list view (contextStripMenu on lines); xml generation  
 WindowsFormsApps1 - echivalent cu seminar 4  
 baza_1043 - manipulare baza de date  
+
+
+
+## Examen
+Telefoane  
+- gridview(dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);  
+- listView  
+- preluare fisier txt  
+- sciere fisier  
+
+Profesor  
+- gridview  
