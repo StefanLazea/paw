@@ -37,3 +37,17 @@ Telefoane
 
 Profesor  
 - gridview  
+
+Smartphones  
+- listview + arraylist
+
+Firma distributie  
+- listview + combobox populat
+
+Cabinet  
+- treeview  
+
+Unitate turistica  
+- listview si operatori
+- se preiau din fisier text
+- serializare la final
